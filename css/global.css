@@ -19,3 +19,31 @@ body {
 .roboto-thin {
     font-family: 'Roboto-thin', sans-serif;
 }
+
+.uk-card-default {
+    box-shadow: none;
+    border: 1px solid black;
+}
+
+.column {
+  display: inline-block;
+  margin:0;
+  padding:0;
+  float: left;
+}
+
+  width: 384px;
+  background: red;
+}
+
+.column.large {
+  width: 768px;
+}
+
+.cellule {
+  display: inline-block;
+  float: left;
+  border: 1px solid black;
+  width: 36.8px;
+  height: 30px;
+}
