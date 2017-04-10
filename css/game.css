@@ -16,12 +16,19 @@ body {
 }
 
 .column.large {
-  width: 800px;
+  /*width: 800px;*/
   height: 800px;
 }
 
+.ligne {
+  display: inline-block;
+  float: left;
+  width: 32px;
+}
+
 .cellule {
-  border: solid black 1px;
-  width: 31px;
-  height: 31px;
+  border: dotted #898989 1px;
+  width: 32px;
+  height: 32px;
+  float: left;
 }
