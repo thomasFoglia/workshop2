@@ -19,3 +19,8 @@ body {
 .roboto-thin {
     font-family: 'Roboto-thin', sans-serif;
 }
+
+#playButton {
+    color: #ffeb3b;
+    font-size: 30px;
+}
