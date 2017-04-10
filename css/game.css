@@ -17,7 +17,6 @@ body {
 
 .column.large {
   /*width: 800px;*/
-  height: 672px;
 }
 
 .ligne {
@@ -31,8 +30,4 @@ body {
   width: 32px;
   height: 32px;
   float: left;
-}
-
-.uk-card-body {
-  height: 100%;
 }
