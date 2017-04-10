@@ -1,0 +1,21 @@
+body {
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.uk-navbar-nav li a {
+    color: #fff;
+    font-family: 'Roboto-light', sans-serif;
+}
+
+.huge-title {
+    font-family: 'Roboto-light', sans-serif;
+    font-size: 72px;
+}
+
+.uk-navbar-item *.uk-icon-link {
+    color: #ffeb3b;
+}
+
+.roboto-thin {
+    font-family: 'Roboto-thin', sans-serif;
+}
