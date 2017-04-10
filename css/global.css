@@ -1,5 +1,6 @@
 body {
     font-family: 'Roboto', sans-serif !important;
+    width: 1536px;
 }
 
 .uk-navbar-nav li a {
@@ -20,7 +21,6 @@ body {
     font-family: 'Roboto-thin', sans-serif;
 }
 
-<<<<<<< HEAD
 .uk-card-default {
     box-shadow: none;
     border: 1px solid black;
@@ -49,9 +49,8 @@ body {
   width: 36.8px;
   height: 30px;
 }
-=======
+
 #playButton {
     color: #ffeb3b;
     font-size: 30px;
 }
->>>>>>> origin/master
