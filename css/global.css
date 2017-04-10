@@ -1,6 +1,5 @@
 body {
     font-family: 'Roboto', sans-serif !important;
-    width: 1536px;
 }
 
 .uk-navbar-nav li a {
@@ -24,30 +23,6 @@ body {
 .uk-card-default {
     box-shadow: none;
     border: 1px solid black;
-}
-
-.column {
-  display: inline-block;
-  margin:0;
-  padding:0;
-  float: left;
-}
-
-.column.thin {
-  width: 377px;
-  background: red;
-}
-
-.column.large {
-  width: 777px;
-}
-
-.cellule {
-  display: inline-block;
-  float: left;
-  border: 1px solid black;
-  width: 36.8px;
-  height: 30px;
 }
 
 #playButton {

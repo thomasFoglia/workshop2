@@ -1,4 +1,5 @@
 <?php include "header.php"; ?>
+<link href="css/game.css" rel="stylesheet">
 
 <div>
   <div class="column thin">
