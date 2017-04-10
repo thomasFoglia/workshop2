@@ -7,12 +7,11 @@ include "header.php"; ?>
 </div>
 <div class='column large' id='grid'>
   <?php
-  for ($i = 0; $i < 20; $i++) { ?>
+  for ($col = 0; $col < 20; $col++) { ?>
     <div style="display: inline-block; float: left; width: 31px;">
       <?php
-      $p = 0;
-      for ($p; $p < 20; $p++) { ?>
-        <div class='cellule' id='cellule_<?php echo $i . "_" . $p;?>'></div>
+      for ($ligne = 0; $ligne < 20; $ligne++) { ?>
+        <div class='cellule' id='cellule_<?php echo $col . "_" . $ligne;?>'></div>
         <?php } ?>
     </div>
     <?php }?>
