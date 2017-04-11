@@ -9,16 +9,39 @@ class PlayController
 
       $x = $request->url_elements[2];
       $y = $request->url_elements[3];
-      $idJoueur = $request->url_elements[4];
+      $nomJoueur = $request->url_elements[4];
+      $tab = $_SESSION["tableau"];
 
-      // TODO
-      // stocker le dernier qui a joué :
-       //$_SESSION["last_played"] = $idJoueur;
+      //Si case non vide alors error 406
+      if ($tab[$x][$y] != 0) {
+        echo "tu pues la chiasse";
+        return;//ERROR 406 a renvoyer
+      }
+      
+      //Si non on valide le coup et procèdons aux cacluls
 
-      // set dernier coup X dans $_SESSION["last_played_x"]
-      // set dernier coup Y dans $_SESSION["last_played_y"]
+      //Joueur 1 ou 2 ?
+      if ($_SESSION["j1"]["nomJoueur"] == $nomJoueur) {
+        $numJoueur = 1;
+      }
+      else if ($_SESSION["j2"]["nomJoueur"] == $nomJoueur) {
+        $numJoueur = 2;
+      }
+      //Else { la matrice explose le serveur brule de milles feux starf }
+      
+      //Place le point
+      $_SESSION["lastX"] = $x;
+      $_SESSION["lastY"] = $y;
+      $tab[$x][$y] = $numJoueur;
 
-      // on inverse le tour :
+      //Calcul des tenailles
+      $newTenaillesCount= countTenailles($tab);
+      
+      $_SESSION["j1"]["nbTenailles"] = newTenaillesCount["j1"];
+      $_SESSION["j2"]["nbTenailles"] = newTenaillesCount["j2"];
+      
+
+      //Tour par tour (joueur x puis joueur y)
       if ($_SESSION["turn"] == 0) {
         $_SESSION["turn"] = 1;
       } else if ($_SESSION["turn"] == 1) {
@@ -28,6 +51,11 @@ class PlayController
       $data = array("code" => 200);
     }
     return $data;
+  }
+
+  private function countTenailles($arr) {
+    
+    
   }
 }
 

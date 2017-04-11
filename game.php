@@ -45,9 +45,11 @@ else {
 
                     $("#player1cardFooter").show();
                     $("#player1turn").css("display", "none");
-                    console.log(result);
+                    
                     $.post("server.php/ia", {"currentGrid": result.tableau, "tamere": "fdp"}, function(resultIA) {
-                        console.log(resultIA);
+                        //L'IA ME RENVOIE UNE POSITION
+                        //Je joue en appellant /play/{x}/{y}/{nomJoueur}
+
                     });
                 }
 

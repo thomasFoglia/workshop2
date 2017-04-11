@@ -2,7 +2,8 @@
 class ConnectController
 {
   public function getAction($request) {
-    $_SESSION['datas'] = $this->initDatas();
+    $_SESSION['tableau'] = $this->initTableau();
+
     $data = [];
     if (isset($request->url_elements[2]) && $request->url_elements[2] != '') {
       $nomJoueur = $request->url_elements[2];
@@ -12,33 +13,42 @@ class ConnectController
         $idJoueur = md5(uniqid());
         $code = 200;
         $numJoueur = 1;
-        $_SESSION["j1"] = array("nomJoueur" => $nomJoueur, "idJoueur" => $idJoueur, "numJoueur" => $numJoueur);
+        $nbTenailles = 0;
+
+        $_SESSION["j1"] = array("nomJoueur" => $nomJoueur, "idJoueur" => $idJoueur, "numJoueur" => $numJoueur, "nbTenailles" => 0);
         // joueur 2 se connecte
       } else if (empty($_SESSION["j2"])) {
         $idJoueur = md5(uniqid());
         $code = 200;
         $numJoueur = 2;
-        $_SESSION["j2"] = array("nomJoueur" => $nomJoueur, "idJoueur" => $idJoueur, "numJoueur" => $numJoueur);
+        $nbTenailles = 0;
 
-        // tirage au sort
+        $_SESSION["j2"] = array("nomJoueur" => $nomJoueur, "idJoueur" => $idJoueur, "numJoueur" => $numJoueur, "nbTenailles" => $nbTenailles);
+
+        //La partie commence 
         $_SESSION["turn"] = rand(0, 1);
+        $_SESSION["prolongation"] = false;
+        $_SESSION["gameEnded"] = false;
+        $_SESSION["numTour"] = 0;
+        $_SESSION["lastPlayed"] = null;
 
       } else {
-        // deja connecté
-        return array("nomJoueur" => null, "code" => 401, "idJoueur" => null, "numJoueur" => null);
+        //Partie full
+        return array("nomJoueur" => null, "code" => 401, "idJoueur" => null, "numJoueur" => null, "nbTenailles" => null);
       }
 
       return array(
         "idJoueur" => $idJoueur,
         "code" => $code,
         "nomJoueur" => $nomJoueur,
-        "numJoueur" => $numJoueur
+        "numJoueur" => $numJoueur,
+        "nbTenailles" => $nbTenailles
       );
     }
   }
 
   // retourne un tableau de 19x19 initialisé à 0
-  public function initDatas() {
+  public function initTableau() {
     $arr = [];
     for ($i = 0 ; $i < 20 ; $i ++) {
       $tmp = [];

@@ -3,45 +3,41 @@ class TurnController
 {
   public function getAction($request) {
     if (isset($request->url_elements[2]) && $request->url_elements[2] != '') {
-      $idJoueur = $request->url_elements[2];
+      $nomJoueur = $request->url_elements[2];
 
-      // POUR LE DEBUG
-      $_SESSION["last_played"] = $idJoueur;
-      $_SESSION["last_played_x"] = 10;
-      $_SESSION["last_played_y"] = 12;
-
-
-      if (!empty($_SESSION["j1"]["idJoueur"]) && !empty($_SESSION["j2"]["idJoueur"])) {
-        if ($_SESSION["j1"]["idJoueur"] == $idJoueur) {
+      if (!empty($_SESSION["j1"]["nomJoueur"]) && !empty($_SESSION["j2"]["nomJoueur"])) {
+        if ($_SESSION["j1"]["nomJoueur"] == $nomJoueur) {
             if ($_SESSION["turn"] == "0") {
-              $to_play = 1;
+              $status = 1;
+            }
+            else {
+              $status = 0;
             }
         }
-        else if ($_SESSION["j2"]["idJoueur"] == $idJoueur) {
+        else if ($_SESSION["j2"]["nomJoueur"] == $nomJoueur) {
           if ($_SESSION["turn"] == "1") {
-            $to_play = 0;
+            $status = 0;
           }
         }
       } else {
-        $to_play = 0;
+        $status = 0;
       }
 
 
-      $status = $to_play;
-      $datas = $_SESSION['datas']; // all datas
-      $nbTenaillesJ1 = $this->getTenailles(1);
-      $nbTenaillesJ2 = $this->getTenailles(2);
-      $dernierCoupX = $_SESSION["last_played_x"];
-      $dernierCoupY = $_SESSION["last_played_y"];
-      $prolongation = false;
-      $finPartie = false;
+      $tableau = $_SESSION['tableau']; // tableau
+      $nbTenaillesJ1 = $_SESSION["j1"]["nbTenailles"];
+      $nbTenaillesJ2 = $_SESSION["j2"]["nbTenailles"];
+      $dernierCoupX = !empty($_SESSION["lastX"]) ? $_SESSION["lastX"] : -1;
+      $dernierCoupX = !empty($_SESSION["lastY"]) ? $_SESSION["lastY"] : -1;
+      $prolongation = $_SESSION["prolongation"];
+      $finPartie = $_SESSION["gameEnded"];
       $detailFinPartie = "";
-      $numTour = 0;
+      $numTour = $_SESSION["numTour"];
       $code = 200;
 
       return array(
         "status" => $status,
-        "tableau" => $datas,
+        "tableau" => $tableau,
         "nbTenaillesJ1" => $nbTenaillesJ1,
         "nbTenaillesJ2" => $nbTenaillesJ2,
         "dernierCoupX" => $dernierCoupX,
@@ -53,7 +49,7 @@ class TurnController
         "code" => $code
       );
     }
-    return $data;
+    return false;
   }
 
   public function getTenailles($j) {
