@@ -1,6 +1,7 @@
 <?php
 include "header.php"; ?>
 <link href="css/game.css" rel="stylesheet">
+<script src="js/game.js"></script>
 
 <div class="column thin" style="margin-right: 30px; padding-top: 10px;">
   <div class="uk-card uk-card-default uk-card-body uk-animation-slide-left-medium">
@@ -25,11 +26,11 @@ include "header.php"; ?>
 </div>
 <div class='column large' id='grid'>
   <?php
-  for ($col = 0; $col < 20; $col++) { ?>
+  for ($col = 0; $col < 19; $col++) { ?>
     <div class="ligne">
       <?php
-      for ($ligne = 0; $ligne < 20; $ligne++) { ?>
-        <div class='cellule' id='cellule_<?php echo $col . "_" . $ligne;?>'></div>
+      for ($ligne = 0; $ligne < 19; $ligne++) { ?>
+        <div class='cellule' id='cellule_<?php echo $col . "_" . $ligne;?>' style="background: url('img/cross.png')"></div>
         <?php } ?>
     </div>
     <?php }?>
@@ -56,12 +57,3 @@ include "header.php"; ?>
   </div>
 </div>
 <?php include "footer.php";?>
-
-
-<script>
-  $(document).ready(function() {
-    $( "#grid .cellule" ).hover(function(e) {
-      console.log(e.target.id);
-    });
-  });
-</script>
