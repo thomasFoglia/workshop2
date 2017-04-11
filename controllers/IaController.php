@@ -1,25 +1,26 @@
 <?php
+session_start();
 
 class IaController
 {
     public function postAction($request) {
     	if( isset($_POST['currentGrid']) ){
       		$currentGrid = unserialize($_POST['currentGrid']);
-  			
+
   		}
       	$data = [];
       	if(isset($request->url_elements[2]) && $request->url_elements[2] != '') {
 	        $data = $request->url_elements[2];
 	        $tabEmpty = [];
 			foreach ($currentGrid as $key=>$line){
-				foreach($line as $sskey => $element){			
+				foreach($line as $sskey => $element){
 					switch ($element) {
 					    case 0:
-							$tabEmpty[] = ['x' => $sskey , 'y' => $key]; 
+							$tabEmpty[] = ['x' => $sskey , 'y' => $key];
 					    case 1:
-					        $tabJoueur1[] = ['x' => $sskey , 'y' => $key]; 
+					        $tabJoueur1[] = ['x' => $sskey , 'y' => $key];
 					    case 2:
-					        $tabJoueur2[] = ['x' => $sskey , 'y' => $key]; 
+					        $tabJoueur2[] = ['x' => $sskey , 'y' => $key];
 					}
 				}
 			}

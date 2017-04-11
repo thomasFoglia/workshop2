@@ -35,14 +35,14 @@ else {
                 if(false) {
                     $("#player2cardFooter").show();
                     $("#waitingPlayer2").css("display", "flex");
-                    
+
                     $("#player1cardFooter").show();
                     $("#player1turn").show();
                 }
                 else {
                     $("#player2cardFooter").hide();
                     $("#waitingPlayer2").css("display", "none");
-                    
+
                     $("#player1cardFooter").show();
                     $("#player1turn").css("display", "none");
 
@@ -65,7 +65,7 @@ else {
                 //Un joueur a posé un pion
                 if (result.dernierCoupX != lastX || result.dernierCoupY != lastY){
                     lastX = result.dernierCoupX;
-                    lastY = result.dernierCoupY;  
+                    lastY = result.dernierCoupY;
                     addPt2(lastX, lastY);
                 }
 
@@ -86,7 +86,7 @@ else {
             });
         }, 500);
     });
-    
+
     </script>
 
     <div class="column thin" style="margin-right: 30px; padding-top: 10px;">
@@ -106,17 +106,17 @@ else {
                 <progress id="player1HP" class="uk-progress" value="100" max="100"></progress>
             </div>
             <div class="uk-card-body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p> 
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
             </div>
             <div id="player1cardFooter" class="uk-card-footer" style="display: none;">
                 <div id="waitingPlayer1" style="display: none; align-items: center; justify-content: center;">
                     <div uk-spinner></div>
-                    <div style="margin-left: 15px;">En attente du joueur</div>    
+                    <div style="margin-left: 15px;">En attente du joueur</div>
                 </div>
-                
+
                 <div id="player1turn" style="display: none; align-items: center; justify-content: center;">
                     <span class="uk-margin-small-right" uk-icon="icon: bell;"></span>
-                    <div style="margin-left: 15px;">À ton tour</div>    
+                    <div style="margin-left: 15px;">À ton tour</div>
                 </div>
             </div>
         </div>
@@ -156,12 +156,12 @@ else {
             <div id="player2cardFooter" class="uk-card-footer" style="display: none;">
                 <div id="waitingPlayer2" style="display: none; align-items: center; justify-content: center;">
                     <div uk-spinner></div>
-                    <div style="margin-left: 15px;">En attente du joueur</div>    
+                    <div style="margin-left: 15px;">En attente du joueur</div>
                 </div>
-                
+
                 <div id="player2turn" style="display: none; align-items: center; justify-content: center;">
                     <span class="uk-margin-small-right" uk-icon="icon: bell;"></span>
-                    <div style="margin-left: 15px;">Au jour du joueur 2</div>    
+                    <div style="margin-left: 15px;">Au jour du joueur 2</div>
                 </div>
             </div>
         </div>

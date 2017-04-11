@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 class PlayController
 {
@@ -14,7 +15,7 @@ class PlayController
 
       // TODO
       // stocker le dernier qui a joué :
-      // $_SESSION["last_played"] = $idJoueur;
+       //$_SESSION["last_played"] = $idJoueur;
 
       // set dernier coup X dans $_SESSION["last_played_x"]
       // set dernier coup Y dans $_SESSION["last_played_y"]
