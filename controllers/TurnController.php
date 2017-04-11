@@ -3,11 +3,15 @@
 class TurnController
 {
   public function getAction($request) {
+    $datas = $_SESSION['datas']; // all datas
     $data = [];
     if (isset($request->url_elements[2]) && $request->url_elements[2] != '') {
       $idJoueur = $request->url_elements[2];
 
       // TODO
+      // connect() => session joueur 1 + joueur 2
+      // check 2 sec attente des joueurs
+
       $status = 0;
       $tableau = array(); // clés ?
       $nbTenaillesJ1 = 5;
