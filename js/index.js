@@ -12,10 +12,10 @@ $(document).ready(function() {
         }
     });
 
-    $("form").submit(function(e) {
-       e.preventDefault();
-      pseudo = $("#playerName").val();
-       $.ajax({
+    $("#playButton").click(function(e) {
+        e.preventDefault();
+        pseudo = $("#playerName").val();
+        $.ajax({
             url: "server.php/connect/" + pseudo,
             type: "GET",
             data: [],
@@ -24,10 +24,13 @@ $(document).ready(function() {
                 //param = JSON.parse(result);
                 switch (result.code) {
                     case 200:
-                        window.location.replace("game.php");
+                        $("form").append('<input name="idJoueur" type="hidden" value="' + result.idJoueur + '" />')
+                        $("form").append('<input name="nomJoueur" type="hidden" value="' + result.nomJoueur + '" />')
+                        $("form").submit();
+
                         break;
                     case 401:
-                      UIkit.notification("<span uk-icon='icon: warning'></span>&nbsp;&nbsp;&nbsp;Une partie est déjà en cours !", { status: "danger"});
+                        UIkit.notification("<span uk-icon='icon: warning'></span>&nbsp;&nbsp;&nbsp;Une partie est déjà en cours !", { status: "danger" });
                 }
             }
         });

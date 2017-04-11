@@ -2,7 +2,7 @@
 include "header.php"; 
 if(!empty($_GET["urlServer"]))
 {
-    $serverUrl = $_GET["urlServer"];
+    $serverUrl = $_GET["serverUrl"];
 }
 else {
     //POUR LE DEV ENLEVER APRES

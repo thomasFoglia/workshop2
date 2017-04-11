@@ -8,13 +8,13 @@ class ConnectController
       $nomJoueur = $request->url_elements[2];
 
       //joueur 1 se connecte
-      if (!isset($_SESSION["j1"])) {
+      if (!empty($_SESSION["j1"])) {
         $idJoueur = md5(uniqid());
         $code = 200;
         $numJoueur = 1;
         $_SESSION["j1"] = array("nomJoueur" => $nomJoueur, "idJoueur" => $idJoueur, "numJoueur" => $numJoueur);
         // joueur 2 se connecte
-      } else if (!isset($_SESSION["j2"])) {
+      } else if (!empty($_SESSION["j2"])) {
         $idJoueur = md5(uniqid());
         $code = 200;
         $numJoueur = 2;

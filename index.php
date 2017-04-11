@@ -18,7 +18,7 @@ include "header.php";
             <div class="uk-text-center uk-margin">
                 <div class="uk-inline">
                     <span class="uk-form-icon" uk-icon="icon: users"></span>
-                    <input id="playerName" name="playerName" class="uk-input uk-form-width-large" type="text" placeholder="Player Name" required>
+                    <input id="playerName" name="playerName" class="uk-input uk-form-width-large" type="text" placeholder="Nom de joueur" required>
                 </div>
             </div>
 
@@ -32,7 +32,7 @@ include "header.php";
             <div id="ServeurName" class="uk-margin uk-text-center">
                 <div class="uk-inline uk-align-center">
                     <span class="uk-form-icon" uk-icon="icon: link"></span>
-                    <input name="ServerName" class="uk-input uk-form-width-large" type="text" placeholder="Server Name">
+                    <input name="serverUrl" class="uk-input uk-form-width-large" type="text" placeholder="URL du serveur" value="http://loicmazallon.com/server.php">
                 </div>
             </div>
 
