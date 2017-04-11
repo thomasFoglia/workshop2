@@ -3,30 +3,40 @@
 class TurnController
 {
   public function getAction($request) {
-    $datas = $_SESSION['datas']; // all datas
-    $data = [];
     if (isset($request->url_elements[2]) && $request->url_elements[2] != '') {
       $idJoueur = $request->url_elements[2];
 
-      // TODO
-      // connect() => session joueur 1 + joueur 2
-      // check 2 sec attente des joueurs
+      // POUR LE DEBUG
+      $_SESSION["last_played"] = $idJoueur;
+      $_SESSION["last_played_x"] = 10;
+      $_SESSION["last_played_x"] = 12;
 
-      $status = 0;
-      $tableau = array(); // clés ?
-      $nbTenaillesJ1 = 5;
-      $nbTenaillesJ2 = 9;
-      $dernierCoupX = 1;
-      $dernierCoupY = 12;
+
+      if ($_SESSION["j1"]["idJoueur"] == $idJoueur) {
+        if ($_SESSION["turn"] == "0") {
+          $to_play = 1;
+        }
+      } else if ($_SESSION["j2"]["idJoueur"] == $idJoueur) {
+        if ($_SESSION["turn"] == "1") {
+          $to_play = 0;
+        }
+      }
+
+      $status = $to_play;
+      $datas = $_SESSION['datas']; // all datas
+      $nbTenaillesJ1 = $this->getTenailles(1);
+      $nbTenaillesJ2 = $this->getTenailles(2);
+      $dernierCoupX = $_SESSION["last_played_x"];
+      $dernierCoupY = $_SESSION["last_played_y"];
       $prolongation = false;
       $finPartie = false;
-      $detailFinPartie = "texte";
-      $numTour = 12;
+      $detailFinPartie = "";
+      $numTour = 0;
       $code = 200;
 
-      $data = array(
+      return array(
         "status" => $status,
-        "tableau" => $tableau,
+        "tableau" => $datas,
         "nbTenaillesJ1" => $nbTenaillesJ1,
         "nbTenaillesJ2" => $nbTenaillesJ2,
         "dernierCoupX" => $dernierCoupX,
@@ -40,6 +50,10 @@ class TurnController
     }
     return $data;
   }
-}
 
+  public function getTenailles($j) {
+
+  }
+
+}
 ?>

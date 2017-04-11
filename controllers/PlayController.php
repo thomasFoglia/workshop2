@@ -13,6 +13,18 @@ class PlayController
       $idJoueur = $request->url_elements[4];
 
       // TODO
+      // stocker le dernier qui a joué :
+      // $_SESSION["last_played"] = $idJoueur;
+
+      // set dernier coup X dans $_SESSION["last_played_x"]
+      // set dernier coup Y dans $_SESSION["last_played_y"]
+
+      // on inverse le tour :
+      if ($_SESSION["turn"] == 0) {
+        $_SESSION["turn"] = 1;
+      } else if ($_SESSION["turn"] == 1) {
+        $_SESSION["turn"] = 0;
+      }
 
       $data = array("code" => 200);
     }

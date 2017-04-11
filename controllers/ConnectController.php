@@ -20,6 +20,10 @@ class ConnectController
         $code = 200;
         $numJoueur = 2;
         $_SESSION["j2"] = array("nomJoueur" => $nomJoueur, "idJoueur" => $idJoueur, "numJoueur" => $numJoueur);
+
+        // tirage au sort
+        $_SESSION["turn"] = rand(0, 1);
+
       } else {
         // deja connecté
         return array("nomJoueur" => null, "code" => 401, "idJoueur" => null, "numJoueur" => null);
@@ -33,7 +37,7 @@ class ConnectController
       );
     }
   }
-  
+
   // retourne un tableau de 19x19 initialisé à 0
   public function initDatas() {
     $arr = [];
