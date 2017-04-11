@@ -45,7 +45,7 @@ else {
 
                     $("#player1cardFooter").show();
                     $("#player1turn").css("display", "none");
-
+                    console.log(result);
                     $.post("server.php/ia", {"currentGrid": result.tableau, "tamere": "fdp"}, function(resultIA) {
                         console.log(resultIA);
                     });

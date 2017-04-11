@@ -3,8 +3,7 @@ class IaController
 {
     public function postAction($request) {
     	if( isset($_POST['currentGrid']) ){
-      		$currentGrid = unserialize($_POST['currentGrid']);
-
+      		$currentGrid = $_POST['currentGrid'];
   		}
       	$data = [];
       	if(isset($request->url_elements[2]) && $request->url_elements[2] != '') {

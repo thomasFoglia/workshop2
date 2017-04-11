@@ -8,10 +8,10 @@ class TurnController
       // POUR LE DEBUG
       $_SESSION["last_played"] = $idJoueur;
       $_SESSION["last_played_x"] = 10;
-      $_SESSION["last_played_x"] = 12;
+      $_SESSION["last_played_y"] = 12;
 
 
-      if (!empty($_SESSION["j1"]["idJoueur"]) || (!empty($_SESSION["j2"]["idJoueur"])) {
+      if (!empty($_SESSION["j1"]["idJoueur"]) && !empty($_SESSION["j2"]["idJoueur"])) {
         if ($_SESSION["j1"]["idJoueur"] == $idJoueur) {
             if ($_SESSION["turn"] == "0") {
               $to_play = 1;
