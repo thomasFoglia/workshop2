@@ -41,6 +41,10 @@ include "header.php";
             </div>
         </form>            
     </div>
+     <div class="uk-alert-warning" style="display:none;">
+             <!--a href="index.php" class="uk-alert-close uk-close"></a-->
+             <p>Partie en cours...</p>
+                        </div>
 </div>
 
 <?php include "footer.php";?>

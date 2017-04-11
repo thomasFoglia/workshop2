@@ -12,12 +12,14 @@ $(document).ready(function() {
         }
     });
 
-    $(form).submit(function(e) {
-        e.preventDefault();
-        $.ajax({
-            url: url,
-            type: GET,
-            data: data,
+    $("form").submit(function(e) {
+       e.preventDefault();
+      // alert("ok");
+      pseudo = $(".playerName").val();
+       $.ajax({
+            url:"server.php/connect/"+pseudo,
+            type: "GET",
+            data: [],
             dataType: JSON,
             success: function(result) {
                 param = json.parse(result);
@@ -27,10 +29,12 @@ $(document).ready(function() {
                         window.location.replace("game.php");
                         break;
                     case 401:
-                        //connection non autorisée
+                    //connection non autorisée
+                       $(".uk-alert-warning").show();
                         break;
                 }
             }
         });
+       
     });
 });
