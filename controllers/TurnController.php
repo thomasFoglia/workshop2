@@ -11,15 +11,21 @@ class TurnController
       $_SESSION["last_played_x"] = 12;
 
 
-      if ($_SESSION["j1"]["idJoueur"] == $idJoueur) {
-        if ($_SESSION["turn"] == "0") {
-          $to_play = 1;
+      if (!empty($_SESSION["j1"]["idJoueur"]) || (!empty($_SESSION["j2"]["idJoueur"])) {
+        if ($_SESSION["j1"]["idJoueur"] == $idJoueur) {
+            if ($_SESSION["turn"] == "0") {
+              $to_play = 1;
+            }
         }
-      } else if ($_SESSION["j2"]["idJoueur"] == $idJoueur) {
-        if ($_SESSION["turn"] == "1") {
-          $to_play = 0;
+        else if ($_SESSION["j2"]["idJoueur"] == $idJoueur) {
+          if ($_SESSION["turn"] == "1") {
+            $to_play = 0;
+          }
         }
+      } else {
+        $to_play = 0;
       }
+
 
       $status = $to_play;
       $datas = $_SESSION['datas']; // all datas
