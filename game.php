@@ -2,7 +2,7 @@
 include "header.php"; ?>
 <link href="css/game.css" rel="stylesheet">
 
-<div class="column thin">
+<div class="column thin" style="margin-right: 30px; padding-top: 10px;">
   <div class="uk-card uk-card-default uk-card-body uk-animation-slide-left-medium">
       <div class="uk-card-header">
           <div class="uk-grid-small uk-flex-middle" uk-grid>
@@ -34,7 +34,7 @@ include "header.php"; ?>
     </div>
     <?php }?>
 </div>
-<div class="column thin">
+<div class="column thin" style="margin-left: 30px; padding-top: 10px;">
     <div class="uk-card uk-card-default uk-card-body uk-animation-slide-right-medium">
       <div class="uk-card-header">
           <div class="uk-grid-small uk-flex-middle" uk-grid>

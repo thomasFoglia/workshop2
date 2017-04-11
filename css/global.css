@@ -12,17 +12,8 @@ body {
     font-size: 72px;
 }
 
-.uk-navbar-item *.uk-icon-link {
-    color: #ffeb3b;
-}
-
 .roboto-thin {
     font-family: 'Roboto-thin', sans-serif;
-}
-
-.uk-card-default {
-    box-shadow: none;
-    border: 1px solid black;
 }
 
 #playButton {
