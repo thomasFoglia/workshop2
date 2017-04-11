@@ -1,6 +1,6 @@
 <?php
 
-class TurnController
+class IaController
 {
     public function getAction($request) {
       $data = [];
