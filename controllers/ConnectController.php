@@ -45,10 +45,11 @@ class ConnectController
         if ($_SESSION["j" . $nb_users]["nomJoueur"] == $nomJoueur) {
           $idJoueur = $_SESSION["j" . $nb_users]["idJoueur"];
           $numJoueur = $_SESSION["j" . $nb_users]["numJoueur"];
-          return array("nomJoueur" => $nomJoueur, "idJoueur" => $idJoueur, "numJoueur" => $numJoueur);
+          return array("nomJoueur" => $nomJoueur, "code" => 401, "idJoueur" => $idJoueur, "numJoueur" => $numJoueur);
         }
       }
     }
+    return array("nomJoueur" => null, "code" => 401, "idJoueur" => null, "numJoueur" => null);
   }
 
 }

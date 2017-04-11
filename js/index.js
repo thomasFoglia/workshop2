@@ -14,27 +14,23 @@ $(document).ready(function() {
 
     $("form").submit(function(e) {
        e.preventDefault();
-      // alert("ok");
-      pseudo = $(".playerName").val();
+      pseudo = $("#playerName").val();
        $.ajax({
-            url:"server.php/connect/"+pseudo,
+            url: "server.php/connect/" + pseudo,
             type: "GET",
             data: [],
-            dataType: JSON,
+            dataType: 'json',
             success: function(result) {
-                param = json.parse(result);
-                code = result["code"];
-                switch (code) {
+                //param = JSON.parse(result);
+                switch (result.code) {
                     case 200:
                         window.location.replace("game.php");
                         break;
                     case 401:
-                    //connection non autorisée
-                       $(".uk-alert-warning").show();
-                        break;
+                      UIkit.notification("<span uk-icon='icon: warning'></span>&nbsp;&nbsp;&nbsp;Une partie est déjà en cours !", { status: "danger"});
                 }
             }
         });
-       
+
     });
 });

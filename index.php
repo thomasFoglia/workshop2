@@ -18,7 +18,7 @@ include "header.php";
             <div class="uk-text-center uk-margin">
                 <div class="uk-inline">
                     <span class="uk-form-icon" uk-icon="icon: users"></span>
-                    <input name="playerName" class="uk-input uk-form-width-large" type="text" placeholder="Player Name">
+                    <input id="playerName" name="playerName" class="uk-input uk-form-width-large" type="text" placeholder="Player Name" required>
                 </div>
             </div>
 
@@ -28,7 +28,7 @@ include "header.php";
                     <option value"human">Je suis un humain</option>
                 </select>
             </div>
-    
+
             <div id="ServeurName" class="uk-margin uk-text-center">
                 <div class="uk-inline uk-align-center">
                     <span class="uk-form-icon" uk-icon="icon: link"></span>
@@ -39,12 +39,8 @@ include "header.php";
             <div class="uk-margin uk-text-center">
                 <button type="submit" id="playButton" class="uk-button uk-button-text" >JOUER</button>
             </div>
-        </form>            
+        </form>
     </div>
-     <div class="uk-alert-warning" style="display:none;">
-             <!--a href="index.php" class="uk-alert-close uk-close"></a-->
-             <p>Partie en cours...</p>
-                        </div>
 </div>
 
 <?php include "footer.php";?>
