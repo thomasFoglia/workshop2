@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 spl_autoload_register('apiAutoload');
 function apiAutoload($classname)
 {
