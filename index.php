@@ -3,7 +3,7 @@ include "header.php";
 ?>
 
 <script src="js/index.js"></script>
-
+<?=print_r($_SESSION)?>
 <div class="uk-cover-background">
     <img src="img/material-wpp2.jpg" alt="wpp" uk-cover>
     <div class="uk-section">
@@ -29,7 +29,7 @@ include "header.php";
                 </select>
             </div>
 
-            <div id="ServeurName" class="uk-margin uk-text-center">
+            <div class="uk-margin uk-text-center">
                 <div class="uk-inline uk-align-center">
                     <span class="uk-form-icon" uk-icon="icon: link"></span>
                     <input name="serverUrl" class="uk-input uk-form-width-large" type="text" placeholder="URL du serveur" value="http://loicmazallon.com/server.php">

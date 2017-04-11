@@ -1,6 +1,6 @@
 <?php
-include "header.php"; 
-if(!empty($_GET["urlServer"]))
+include "header.php";
+if(!empty($_GET["serverUrl"]))
 {
     $serverUrl = $_GET["serverUrl"];
 }
@@ -98,6 +98,7 @@ else {
             </div>
             <div class="uk-card-body">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                <p><?=print_r($_SESSION)?></p>
             </div>
             <div id="player1cardFooter" class="uk-card-footer" style="display: none;">
                 <div id="waitingPlayer1" style="display: none; align-items: center; justify-content: center;">

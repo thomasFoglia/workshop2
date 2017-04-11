@@ -14,19 +14,18 @@ $(document).ready(function() {
 
     $("#playButton").click(function(e) {
         e.preventDefault();
-        pseudo = $("#playerName").val();
+        pseudo = $("input[name='playerName']").val();
         $.ajax({
             url: "server.php/connect/" + pseudo,
             type: "GET",
             data: [],
             dataType: 'json',
             success: function(result) {
-                //param = JSON.parse(result);
                 switch (result.code) {
                     case 200:
-                        $("form").append('<input name="idJoueur" type="hidden" value="' + result.idJoueur + '" />')
-                        $("form").append('<input name="nomJoueur" type="hidden" value="' + result.nomJoueur + '" />')
-                        $("form").submit();
+                        $("form").append('<input name="idJoueur" type="hidden" value="' + result.idJoueur + '" />');
+                        $("form").append('<input name="numJoueur" type="hidden" value="' + result.numJoueur + '" />');
+                        //$("form").submit();
 
                         break;
                     case 401:
