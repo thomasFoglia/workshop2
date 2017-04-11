@@ -1,0 +1,44 @@
+if(nousPremierTour and caseVide){
+	poser(a côté lui et nous);
+	if{a coté quelqu'un}
+
+}
+else{
+	
+}
+
+if(jetonsCollésNous >3 and notreTour){
+	ajouter 5e
+}
+elseif(jetonsCollésEux >3 and ){
+	couper leur ligne
+}
+penser à un système anti tenaille
+ligne de 4 avec 2 bouts libres
+
+vérifier chaque fois qu'on peut pas se faire tenailler, a +2 qu'il y a pas d'opposant.
+	si y en a une, on réagit en fonction.
+
+si on va se faire tenailler on pose pas, sauf pour empêcher une victoire.
+
+méthode d'attaque 1 : poser 2 pions à côté, puis laisser un vide et poser derrière (voir 2 trous)
+méthode défense 1: voir attaque 1. priorité numéro 2 (pour empêcher défaite)
+
+chercher tous les axes communs aux 2 joueurs et bloquer celui qui en a le plus
+sinon 
+
+Quand on pose on pose avec 1 d'espace.
+
+
+si y a 3 et bloqué d'un côté on attaque. 
+si y a 3 et bloqué d'aucun côté on défend.
+
+compter nb tenaille et si >3 alors priorité a la défense aux tenailles (dans les 2 sens).
+
+si on détecte possibilité de tenailles anticiper le tour de suivant si on brise une chaine de 4 ou si on s'en créé une.
+
+prévoir chrono si on est par exemple a 9 minutes 50 pour faire une tenaille de plus que l'adversaire.
+et prévoir aussi les 10 secondes de vite poser un pion random. Voir sur le net si on peut calculer le temps d'une requête.
+
+
+
