@@ -3,6 +3,7 @@
 class ConnectController
 {
   public function getAction($request) {
+    $_SESSION['datas'] = $this->initDatas();
     $data = [];
     if (isset($request->url_elements[2]) && $request->url_elements[2] != '') {
       $nomJoueur = $request->url_elements[2];
@@ -41,7 +42,7 @@ class ConnectController
   // retourne les infos de l'utilisateur recherché par son nom
   public function getInfosFromSession($nomJoueur) {
     for ($nb_users = 2; $nb_users > 0; $nb_users --) {
-      if (isset($_SESSION["j" . $nb_users])) {
+      if (!empty(($_SESSION["j" . $nb_users]))) {
         if ($_SESSION["j" . $nb_users]["nomJoueur"] == $nomJoueur) {
           $idJoueur = $_SESSION["j" . $nb_users]["idJoueur"];
           $numJoueur = $_SESSION["j" . $nb_users]["numJoueur"];
@@ -50,6 +51,20 @@ class ConnectController
       }
     }
     return array("nomJoueur" => null, "code" => 401, "idJoueur" => null, "numJoueur" => null);
+  }
+
+
+  // retourne un tableau de 19x19 initialisé à 0
+  public function initDatas() {
+    $arr = [];
+    for ($i = 0 ; $i < 20 ; $i ++) {
+      $tmp = [];
+      for ($p = 0 ; $p < 20 ; $p ++) {
+        $tmp[] = 0;
+      }
+      $arr[] = $tmp;
+    }
+    return $arr;
   }
 
 }
