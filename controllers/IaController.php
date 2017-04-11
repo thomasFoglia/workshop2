@@ -2,7 +2,7 @@
 
 class IaController
 {
-    public function getAction($request) {
+    public function postAction($request) {
     	if( isset($_POST['currentGrid']) ){
       		$currentGrid = $_POST['currentGrid'];
   		}

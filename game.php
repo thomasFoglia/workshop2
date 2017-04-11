@@ -31,15 +31,24 @@ else {
         setInterval(function() {
             $.get("<?=$serverUrl?>/turn/<?=$playerName?>", function(result){
                 //Ce n'est pas a nous de jouer
-                if(result.status == 0) {
+                //if(result.status == 0) {
+                if(false) {
                     $("#player2cardFooter").show();
                     $("#waitingPlayer2").css("display", "flex");
-                    $("#player1turn").hide();
+                    
+                    $("#player1cardFooter").show();
+                    $("#player1turn").show();
                 }
                 else {
                     $("#player2cardFooter").hide();
                     $("#waitingPlayer2").css("display", "none");
-                    $("#player1turn").show();
+                    
+                    $("#player1cardFooter").show();
+                    $("#player1turn").css("display", "none");
+
+                    $.post("server.php/ia", {"currentGrid": result.tableau, "tamere": "fdp"}, function(resultIA) {
+                        console.log(resultIA);
+                    });
                 }
 
                 //Le nombre de tenailles a changé
