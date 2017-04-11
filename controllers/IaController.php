@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 class IaController
 {
     public function postAction($request) {

@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 class ConnectController
 {
   public function getAction($request) {

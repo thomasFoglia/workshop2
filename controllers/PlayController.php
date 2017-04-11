@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 class PlayController
 {
   public function getAction($request) {
