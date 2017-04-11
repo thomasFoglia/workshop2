@@ -25,7 +25,7 @@ $(document).ready(function() {
                     case 200:
                         $("form").append('<input name="idJoueur" type="hidden" value="' + result.idJoueur + '" />');
                         $("form").append('<input name="numJoueur" type="hidden" value="' + result.numJoueur + '" />');
-                        //$("form").submit();
+                        $("form").submit();
 
                         break;
                     case 401:

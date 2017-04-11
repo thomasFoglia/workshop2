@@ -3,7 +3,7 @@ include "header.php";
 ?>
 
 <script src="js/index.js"></script>
-<?=print_r($_SESSION)?>
+
 <div class="uk-cover-background">
     <img src="img/material-wpp2.jpg" alt="wpp" uk-cover>
     <div class="uk-section">

@@ -15,7 +15,7 @@ if(!empty($_GET["playerName"]))
 }
 else {
     //POUR LE DEV ENLEVER APRES
-    $playerName = "http://monserver.fr/";
+    $playerName = "Je suis le joueur";
 }
 ?>
     <link href="css/game.css" rel="stylesheet">
@@ -33,24 +33,24 @@ else {
                 //Ce n'est pas a nous de jouer
                 if(result.status == 0) {
                     $("#player2cardFooter").show();
-                    $("#waitingPlayer2").show();
+                    $("#waitingPlayer2").css("display", "flex");
                     $("#player1turn").hide();
                 }
                 else {
                     $("#player2cardFooter").hide();
-                    $("#waitingPlayer2").hide();
+                    $("#waitingPlayer2").css("display", "none");
                     $("#player1turn").show();
                 }
 
                 //Le nombre de tenailles a changé
                 if(result.nbTenaillesJ1 != tenaillesPlayer1) {
                     $("#tenaillesPlayer1").html(tenaillesPlayer1);
-                    $("#player1HP").val(100 - (tenaillesPlayer1 * 10));
+                    $("#player1HP").val(100 - (tenaillesPlayer1 * 20));
                 }
 
                 if(result.nbTenaillesJ2 != tenaillesPlayer2) {
                     $("#tenaillesPlayer2").html(tenaillesPlayer2);
-                    $("#player2HP").val(100 - (tenaillesPlayer2 * 10));
+                    $("#player2HP").val(100 - (tenaillesPlayer2 * 20));
                 }
 
                 //Un joueur a posé un pion
@@ -88,7 +88,7 @@ else {
                         <img class="uk-border-circle" width="40" height="40" src="https://upload.wikimedia.org/wikipedia/commons/8/87/Avatar_poe84it.png">
                     </div>
                     <div class="uk-width-expand">
-                        <h3 class="uk-card-title uk-margin-remove-bottom">Joueur 1</h3>
+                        <h3 class="uk-card-title uk-margin-remove-bottom"><?=$_GET["playerName"]?></h3>
                         <p class="uk-text-meta uk-margin-remove-top">
                             Tenailles : <span id="tenaillesPlayer1">0</span>
                         </p>
@@ -97,8 +97,7 @@ else {
                 <progress id="player1HP" class="uk-progress" value="100" max="100"></progress>
             </div>
             <div class="uk-card-body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-                <p><?=print_r($_SESSION)?></p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p> 
             </div>
             <div id="player1cardFooter" class="uk-card-footer" style="display: none;">
                 <div id="waitingPlayer1" style="display: none; align-items: center; justify-content: center;">
@@ -134,9 +133,9 @@ else {
                         <img class="uk-border-circle" width="40" height="40" src="https://upload.wikimedia.org/wikipedia/commons/8/87/Avatar_poe84it.png">
                     </div>
                     <div class="uk-width-expand">
-                        <h3 class="uk-card-title uk-margin-remove-bottom">Joueur 1</h3>
+                        <h3 class="uk-card-title uk-margin-remove-bottom">Joueur 2</h3>
                         <p class="uk-text-meta uk-margin-remove-top">
-                            <time datetime="2016-04-01T19:00">SCORE</time>
+                            Tenailles : <span id="tenaillesPlayer2">0</span>
                         </p>
                     </div>
                 </div>

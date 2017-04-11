@@ -33,9 +33,7 @@ class ConnectController
       );
     }
   }
-
-
-
+  
   // retourne un tableau de 19x19 initialisé à 0
   public function initDatas() {
     $arr = [];
@@ -48,6 +46,5 @@ class ConnectController
     }
     return $arr;
   }
-
 }
 ?>
