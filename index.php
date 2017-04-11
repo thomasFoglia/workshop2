@@ -18,7 +18,7 @@ include "header.php";
             <div class="uk-text-center uk-margin">
                 <div class="uk-inline">
                     <span class="uk-form-icon" uk-icon="icon: users"></span>
-                    <input name="teamName" class="uk-input uk-form-width-large" type="text" placeholder="Nom d'équipe">
+                    <input name="playerName" class="uk-input uk-form-width-large" type="text" placeholder="Player Name">
                 </div>
             </div>
 
@@ -29,15 +29,15 @@ include "header.php";
                 </select>
             </div>
     
-            <div id="iaAddress" class="uk-margin uk-text-center">
+            <div id="ServeurName" class="uk-margin uk-text-center">
                 <div class="uk-inline uk-align-center">
                     <span class="uk-form-icon" uk-icon="icon: link"></span>
-                    <input name="iaAddress" class="uk-input uk-form-width-large" type="text" placeholder="Adresse IA">
+                    <input name="ServerName" class="uk-input uk-form-width-large" type="text" placeholder="Server Name">
                 </div>
             </div>
 
             <div class="uk-margin uk-text-center">
-                <button type="submit" id="playButton" class="uk-button uk-button-text">JOUER</button>
+                <button type="submit" id="playButton" class="uk-button uk-button-text" >JOUER</button>
             </div>
         </form>            
     </div>

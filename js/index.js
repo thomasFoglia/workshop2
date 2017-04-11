@@ -11,4 +11,26 @@ $(document).ready(function() {
             $("#iaAddress").hide();
         }
     });
+
+    $(form).submit(function(e) {
+        e.preventDefault();
+        $.ajax({
+            url: url,
+            type: GET,
+            data: data,
+            dataType: JSON,
+            success: function(result) {
+                param = json.parse(result);
+                code = result["code"];
+                switch (code) {
+                    case 200:
+                        window.location.replace("game.php");
+                        break;
+                    case 401:
+                        //connection non autorisée
+                        break;
+                }
+            }
+        });
+    });
 });
