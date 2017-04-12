@@ -1,6 +1,6 @@
 <?php
 $prevArray = [
-//  0   1  2  3  4  5  6  7  8  9 10 11  12 13 14 15 16 17 18 
+//  0   1  2  3  4  5  6  7  8  9 10 11  12 13 14 15 16 17 18
     [0, 0, 0, 0, 0, 2, 2, 1, 0, 0 ,0 ,0 , 0, 0, 0, 0, 0, 0, 0],//0
     [0, 0, 0, 0, 2, 0, 0, 0, 0, 0 ,0 ,0 , 0, 0, 0, 0, 0, 0, 0],//1
     [0, 0, 0, 0, 2, 0, 0, 0, 0, 0 ,0 ,0 , 0, 0, 0, 0, 0, 0, 0],//2
@@ -23,7 +23,7 @@ $prevArray = [
 ];
 
 $arr = [
-//  0   1  2  3  4  5  6  7  8  9 10 11  12 13 14 15 16 17 18 
+//  0   1  2  3  4  5  6  7  8  9 10 11  12 13 14 15 16 17 18
     [0, 0, 0, 0, 1, 2, 2, 1, 0, 0 ,0 ,0 , 0, 0, 0, 0, 0, 0, 0],//0
     [0, 0, 0, 0, 2, 0, 0, 0, 0, 0 ,0 ,0 , 0, 0, 0, 0, 0, 0, 0],//1
     [0, 0, 0, 0, 2, 0, 0, 0, 0, 0 ,0 ,0 , 0, 0, 0, 0, 0, 0, 0],//2
@@ -80,7 +80,7 @@ $tenailles = 0;
 
 foreach ($pts as $pt) {
     //Est-ce qu'un pion ennemi est a coté de mon $pt ? Est-ce qu'il y a un pion a moi a coté de moi ?
-    
+
     //Pion allié à droite du pion ennemi ?
     if ($pt[0] != 18 && $arr[$pt[1]][$pt[0] + 1] == $numJoueur) {
         //Pion ennemi a gauche de pion ennemi ?
@@ -94,11 +94,11 @@ foreach ($pts as $pt) {
                     echo "<br/>Les pions [" . $pt[0] . ", " . $pt[1] . "] et [" . ($pt[0] - 1) . ", " . $pt[1] . "] sont tenaillés<br/>";
                     $arr[$pt[1]][$pt[0]] = 0;
                     $arr[$pt[1]][$pt[0] - 1] = 0;
-                } 
+                }
             }
         }
     }
-    
+
 
     //Pion allié en bas du pion ennemi ?
     if ($pt[1] != 18 && $arr[$pt[1] + 1][$pt[0]] == $numJoueur) {
@@ -116,7 +116,7 @@ foreach ($pts as $pt) {
             }
         }
     }
-    
+
 /*
     if ($pt[0] != 18 && $pt[1] != 0) {
         //Diago haut droite
