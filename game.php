@@ -21,7 +21,7 @@ else {
     <link href="css/game.css" rel="stylesheet">
     <script src="js/game.js?v=<?=time();?>"></script>
     <script>
-    $(document).ready(function(){
+    $(document).ready(function() {
         var tenaillesPlayer1 = 0;
         var tenaillesPlayer2 = 0;
         var lastX = -99;
@@ -29,9 +29,10 @@ else {
         var numTour = 0;
 
         setInterval(function() {
-            $.get("<?=$serverUrl?>/turn/<?=$playerName?>", function(result){
+            $.get("<?=$serverUrl?>/turn/<?=$playerName?>", function(result) {
                 //Ce n'est pas a nous de jouer
                 //if(result.status == 0) {
+                //ret = [true, false][Math.round(Math.random())];
                 if(false) {
                     $("#player2cardFooter").show();
                     $("#waitingPlayer2").css("display", "flex");
@@ -120,6 +121,7 @@ else {
                     <span class="uk-margin-small-right" uk-icon="icon: bell;"></span>
                     <div style="margin-left: 15px;">À ton tour</div>
                 </div>
+                <div id="j1_decompte" style="margin-top:20px;font-size: 20px;text-align:center;"></div>
             </div>
         </div>
 
@@ -170,6 +172,7 @@ else {
                     <span class="uk-margin-small-right" uk-icon="icon: bell;"></span>
                     <div style="margin-left: 15px;">Au jour du joueur 2</div>
                 </div>
+                <div id="j2_decompte" style="margin-top:20px;font-size: 20px;text-align:center;"></div>
             </div>
         </div>
     </div>
