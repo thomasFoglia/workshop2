@@ -63,6 +63,9 @@ else {
                 old_status = status; // pour checker le changement de joueur
 
                 if(result.status == 0) {
+                    $("#player2cardFooter").show();
+                    $("#waitingPlayer2").css("display", "flex");
+
                     $("#player1cardFooter").hide();
                     $("#player1turn").css("display", "flex");
 
@@ -72,6 +75,9 @@ else {
                     $("#j2_decompte").html(cpt);
                 }
                 else {
+                    $("#player2cardFooter").hide();
+                    $("#waitingPlayer2").css("display", "none");
+
                     $("#player1cardFooter").show();
                     $("#player1turn").css("display", "flex");
 
@@ -141,6 +147,9 @@ else {
                 </div>
                 <progress id="player1HP" class="uk-progress" value="100" max="100"></progress>
             </div>
+            <div class="uk-card-body">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+            </div>
             <div id="player1cardFooter" class="uk-card-footer" style="display: none;">
                 <div id="waitingPlayer1" style="display: none; align-items: center; justify-content: center;">
                     <div uk-spinner></div>
@@ -188,6 +197,9 @@ else {
                     </div>
                 </div>
                 <progress id="player2HP" class="uk-progress" value="100" max="100" style="background: red"></progress>
+            </div>
+            <div class="uk-card-body">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
             </div>
             <div id="player2cardFooter" class="uk-card-footer" style="display: none;">
                 <div id="waitingPlayer2" style="display: none; align-items: center; justify-content: center;">
