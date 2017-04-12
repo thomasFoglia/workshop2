@@ -54,8 +54,7 @@ class PlayController
   }
 
   private function countTenailles($arr) {
-    
-    
+    //voir algo tenailles
   }
 }
 

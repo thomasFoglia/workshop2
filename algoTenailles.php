@@ -12,7 +12,7 @@ $arr = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 , 0, 0, 0, 0, 0, 0, 0],//8
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 , 0, 0, 0, 0, 0, 0, 0],//9
     [0, 0, 0, 0, 0, 0, 0, 0, 2, 0 ,0 ,0 , 0, 0, 0, 0, 0, 0, 0],//10
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 , 0, 0, 0, 0, 0, 0, 0],//11
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 2 ,0 ,0 , 0, 0, 0, 0, 0, 0, 0],//11
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 , 0, 0, 0, 0, 0, 0, 0],//12
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 , 0, 0, 0, 0, 0, 0, 0],//13
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 , 0, 0, 0, 0, 0, 0, 0],//14
@@ -98,28 +98,28 @@ foreach ($ptsJ1 as $pt) {
 
     if ($pt[0] != 18 && $pt[1] != 0) {
         //Diago haut droite
-        if ($arr[$pt[1] - 1][$pt[0] + 1]) {
+        if ($arr[$pt[1] - 1][$pt[0] + 1] == 1) {
             $ptsTJ1[] = [$pt[0], $pt[1]];
         }
     }
 
     if ($pt[0] != 0 && $pt[1] != 0) {
         //Diago haut gauche
-        if ($arr[$pt[1] - 1][$pt[0] - 1]) {
+        if ($arr[$pt[1] - 1][$pt[0] - 1] == 1) {
             $ptsTJ1[] = [$pt[0], $pt[1]];
         }
     }
 
     if ($pt[0] != 18 && $pt[1] != 18) {
         //Diago bas droite
-        if ($arr[$pt[1] + 1][$pt[0] + 1]) {
+        if ($arr[$pt[1] + 1][$pt[0] + 1] == 1) {
             $ptsTJ1[] = [$pt[0], $pt[1]];
         }
     }
 
     if ($pt[0] != 0 && $pt[1] != 18) {
         //Diago bas gauche
-        if ($arr[$pt[1] + 1][$pt[0] - 1]) {
+        if ($arr[$pt[1] + 1][$pt[0] - 1] == 1) {
             $ptsTJ1[] = [$pt[0], $pt[1]];
         }
     }
@@ -131,14 +131,14 @@ foreach ($ptsJ2 as $pt) {
     
     if ($pt[0] != 18) {
         //À droite ?
-        if ($arr[$pt[1]][$pt[0] + 1] == 1) {
+        if ($arr[$pt[1]][$pt[0] + 1] == 2) {
             $ptsTJ2[] = [$pt[0], $pt[1]];
             continue;
         }
     }
     if ($pt[0] != 0) {
         //À gauche ?
-        if ($arr[$pt[1]][$pt[0] - 1] == 1) {
+        if ($arr[$pt[1]][$pt[0] - 1] == 2) {
             $ptsTJ2[] = [$pt[0], $pt[1]];
             continue;
         }
@@ -146,7 +146,7 @@ foreach ($ptsJ2 as $pt) {
 
     if ($pt[1] != 18) {
         //En bas ?
-        if ($arr[$pt[1] + 1][$pt[0]] == 1) {
+        if ($arr[$pt[1] + 1][$pt[0]] == 2) {
             $ptsTJ2[] = [$pt[0], $pt[1]];
             continue;
         }
@@ -154,7 +154,7 @@ foreach ($ptsJ2 as $pt) {
 
     if ($pt[1] != 0) {
         //En haut ?
-        if ($arr[$pt[1] - 1][$pt[0]] == 1) {
+        if ($arr[$pt[1] - 1][$pt[0]] == 2) {
             $ptsTJ2[] = [$pt[0], $pt[1]];
             continue;
         }
@@ -162,28 +162,28 @@ foreach ($ptsJ2 as $pt) {
 
     if ($pt[0] != 18 && $pt[1] != 0) {
         //Diago haut droite
-        if ($arr[$pt[1] - 1][$pt[0] + 1]) {
+        if ($arr[$pt[1] - 1][$pt[0] + 1] == 2) {
             $ptsTJ2[] = [$pt[0], $pt[1]];
         }
     }
 
     if ($pt[0] != 0 && $pt[1] != 0) {
         //Diago haut gauche
-        if ($arr[$pt[1] - 1][$pt[0] - 1]) {
+        if ($arr[$pt[1] - 1][$pt[0] - 1] == 2) {
             $ptsTJ2[] = [$pt[0], $pt[1]];
         }
     }
 
     if ($pt[0] != 18 && $pt[1] != 18) {
         //Diago bas droite
-        if ($arr[$pt[1] + 1][$pt[0] + 1]) {
+        if ($arr[$pt[1] + 1][$pt[0] + 1] == 2) {
             $ptsTJ2[] = [$pt[0], $pt[1]];
         }
     }
 
     if ($pt[0] != 0 && $pt[1] != 18) {
         //Diago bas gauche
-        if ($arr[$pt[1] + 1][$pt[0] - 1]) {
+        if ($arr[$pt[1] + 1][$pt[0] - 1] == 2) {
             $ptsTJ2[] = [$pt[0], $pt[1]];
         }
     }
