@@ -72,7 +72,6 @@ else {
                     if (refresh_compteur == true) {
                       resetDecompte();
                     }
-                    $("#j2_decompte").html(cpt);
                 }
                 else {
                     $("#player2cardFooter").hide();
