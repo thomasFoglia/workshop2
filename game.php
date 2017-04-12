@@ -29,7 +29,6 @@ else {
         var numTour = 0;
 
         var instance_interval_decompte = null;  // interval pour le decompte de secondes
-        var instance_interval_data = null; // interval pour faire le post sur /turn/
         var cpt = 10; // initialisation du compteur
         var old_status = null; // sauvegarde du dernier status (= dernier a avoir joué) dans cette variable
 
@@ -37,10 +36,9 @@ else {
           if (cpt <= 10) {
               cpt -= 1;
           }
-          if (cpt == -1) {  // == 0
+          if (cpt == 0) {  // == 0
               console.log("PERDU !!! car > 10 secondes "); //TODO UIKIT
               clearInterval(instance_interval_decompte); // stop decompte
-              clearInterval(instance_interval_data); // stop le post
           }
           return cpt;
         }
@@ -51,7 +49,7 @@ else {
         // lancement du décompte
         instance_interval_decompte = setInterval(decompte, 1000);
 
-        instance_interval_data = setInterval(function() {
+        setInterval(function() {
             $.get("<?=$serverUrl?>/turn/<?=$playerName?>", function(result) {
                 //Ce n'est pas a nous de jouer
                 //if(result.status == 0) {
@@ -64,7 +62,7 @@ else {
 
                 old_status = status; // pour checker le changement de joueur
 
-                if(status) {
+                if(status == true) {
                     $("#player2cardFooter").show();
                     $("#waitingPlayer2").css("display", "flex");
 

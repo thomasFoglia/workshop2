@@ -16,7 +16,7 @@ class PlayController
       if ($tab[$x][$y] != 0) {
         return;//ERROR 406 a renvoyer
       }
-      
+
       //Si non on valide le coup et procèdons aux cacluls
 
       //Joueur 1 ou 2 ?
@@ -30,7 +30,7 @@ class PlayController
         //Un joueur non inscrit essaie de nous faire du mal, et on est pas venus ici pour souffrir okay ???
         return;
       }
-      
+
       //Place le point, on garde le tableau d'avant pour calculer les tenailles
       $prevArray = $tab[$x][$y];
       $_SESSION["lastX"] = $x;
@@ -39,10 +39,10 @@ class PlayController
 
       //Calcul des tenailles
       $newTenaillesCount= countTenailles($tab);
-      
+
       $_SESSION["j1"]["nbTenailles"] = newTenaillesCount["j1"];
       $_SESSION["j2"]["nbTenailles"] = newTenaillesCount["j2"];
-      
+
       //Tour par tour (joueur x puis joueur y)
       if ($_SESSION["turn"] == 0) {
         $_SESSION["turn"] = 1;
@@ -76,7 +76,7 @@ class PlayController
 
     foreach ($pts as $pt) {
       //Est-ce qu'un pion m'appartenant est a coté de mon $pt ?
-      
+
       //À droite ?
       if ($pt[0] != 18 && $arr[$pt[1]][$pt[0] + 1] == $numJoueur) {
           if ($pt[0] + 1 != 18 && $arr[$pt[1]][$pt[0] + 2] == $numJoueur) {
@@ -88,7 +88,7 @@ class PlayController
               }
           }
       }
-      
+
       //À gauche ?
       if ($pt[0] != 0 && $arr[$pt[1]][$pt[0] - 1] == $numJoueur) {
           if ($pt[0] - 1 != 0 && $arr[$pt[1]][$pt[0] - 2] == $numJoueur) {
@@ -100,14 +100,14 @@ class PlayController
               }
           }
       }
-      
+
       //En bas ?
       if ($pt[1] != 18 && $arr[$pt[1] + 1][$pt[0]] == $numJoueur) {
           if ($pt[1] + 1 != 18 && $arr[$pt[1] + 2][$pt[0]] == $numJoueur) {
               if ($pt[1] + 2 != 18 && $arr[$pt[1] + 3][$pt[0]] == $numJoueur) {
                   if ($pt[1] + 3 != 18 && $arr[$pt[1] + 4][$pt[0]] == $numJoueur) {
                       $isWinner = true;
-                      break;              
+                      break;
                   }
               }
           }
@@ -124,7 +124,7 @@ class PlayController
               }
           }
       }
-      
+
       //Diago haut droite
       if ($pt[0] != 18 && $pt[1] != 0 && $arr[$pt[1] - 1][$pt[0] + 1] == $numJoueur) {
           if ($pt[0] + 1 != 18 && $pt[1] - 1 != 0 && $arr[$pt[1] - 2][$pt[0] + 2] == $numJoueur) {
@@ -137,7 +137,7 @@ class PlayController
           }
       }
 
-      
+
       //Diago haut gauche
       if ($pt[0] != 0 && $pt[1] != 0 && $arr[$pt[1] - 1][$pt[0] - 1] == $numJoueur) {
           if ($pt[0] - 1 != 0 && $pt[1] - 1 != 0 && $arr[$pt[1] - 2][$pt[0] - 2] == $numJoueur) {
