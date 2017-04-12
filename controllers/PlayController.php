@@ -14,7 +14,6 @@ class PlayController
 
       //Si case non vide alors error 406
       if ($tab[$x][$y] != 0) {
-        echo "tu pues la chiasse";
         return;//ERROR 406 a renvoyer
       }
       
@@ -27,9 +26,13 @@ class PlayController
       else if ($_SESSION["j2"]["nomJoueur"] == $nomJoueur) {
         $numJoueur = 2;
       }
-      //Else { la matrice explose le serveur brule de milles feux starf }
+      else {
+        //Un joueur non inscrit essaie de nous faire du mal, et on est pas venus ici pour souffrir okay ???
+        return;
+      }
       
-      //Place le point
+      //Place le point, on garde le tableau d'avant pour calculer les tenailles
+      $prevArray = $tab[$x][$y];
       $_SESSION["lastX"] = $x;
       $_SESSION["lastY"] = $y;
       $tab[$x][$y] = $numJoueur;
@@ -85,7 +88,6 @@ class PlayController
               }
           }
       }
-      
       
       //À gauche ?
       if ($pt[0] != 0 && $arr[$pt[1]][$pt[0] - 1] == $numJoueur) {
@@ -171,6 +173,13 @@ class PlayController
               }
           }
       }
+    }
+
+    if ($isWinner) {
+      return true;
+    }
+    else {
+      return false;
     }
   }
 
