@@ -4,8 +4,12 @@ class IaController
     public function postAction($request) {
     	if( isset($_POST['currentGrid']) ){
       		$currentGrid = $_POST['currentGrid'];
+  		 $data ="current grid existe"	;
   		}
-      	$data = [];
+  		else{
+  			$data = "on recoit pas le post";
+  		}
+      //	$data = [];
       	if(isset($request->url_elements[2]) && $request->url_elements[2] != '') {
 	        $data = $request->url_elements[2];
 	        $tabEmpty = [];
@@ -25,7 +29,7 @@ class IaController
 				}
 			}
 			$randomChoice = array_rand($tabEmpty);
-			$data = json_encode($tabEmpty[$randomChoice]);
+			//$data = json_encode($tabEmpty[$randomChoice]);
 	      	header("HTTP/1.1 200 OK");
 	      return $data;
     	}
