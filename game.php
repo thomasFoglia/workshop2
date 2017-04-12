@@ -28,17 +28,53 @@ else {
         var lastY = -99;
         var numTour = 0;
 
-        setInterval(function() {
+        var instance_interval_decompte = null;  // interval pour le decompte de secondes
+        var instance_interval_data = null; // interval pour faire le post sur /turn/
+        var cpt = 10; // initialisation du compteur
+        var old_status = null; // sauvegarde du dernier status (= dernier a avoir joué) dans cette variable
+
+        function decompte() {
+          if (cpt <= 10) {
+              cpt -= 1;
+          }
+          if (cpt == -1) {  // == 0
+              console.log("PERDU !!! car > 10 secondes "); //TODO UIKIT
+              clearInterval(instance_interval_decompte); // stop decompte
+              clearInterval(instance_interval_data); // stop le post
+          }
+          return cpt;
+        }
+
+        function resetDecompte() {
+          cpt = 10;
+        }
+        // lancement du décompte
+        instance_interval_decompte = setInterval(decompte, 1000);
+
+        instance_interval_data = setInterval(function() {
             $.get("<?=$serverUrl?>/turn/<?=$playerName?>", function(result) {
                 //Ce n'est pas a nous de jouer
                 //if(result.status == 0) {
-                //ret = [true, false][Math.round(Math.random())];
-                if(false) {
+                //status = [true, false][Math.round(Math.random())];
+                status = false;
+                var refresh_compteur = false;
+                if (old_status == null || status != old_status) {
+                  refresh_compteur = true;
+                }
+
+                old_status = status; // pour checker le changement de joueur
+
+                if(status) {
                     $("#player2cardFooter").show();
                     $("#waitingPlayer2").css("display", "flex");
 
                     $("#player1cardFooter").hide();
                     $("#player1turn").css("display", "flex");
+
+                    if (refresh_compteur == true) {
+                      resetDecompte();
+                    }
+                    $("#j2_decompte").html(cpt);
                 }
                 else {
                     $("#player2cardFooter").hide();
@@ -46,6 +82,11 @@ else {
 
                     $("#player1cardFooter").show();
                     $("#player1turn").css("display", "flex");
+
+                    if (refresh_compteur == true) {
+                      resetDecompte();
+                    }
+                    $("#j1_decompte").html(cpt);
 
                     $.post("server.php/ia", {"currentGrid": result.tableau, "tamere": "fdp"}, function(resultIA) {
                         //L'IA ME RENVOIE UNE POSITION
