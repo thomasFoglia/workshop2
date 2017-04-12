@@ -4,7 +4,7 @@ $(document).ready(function() {
     });
 
     $(".cellule").on("mouseenter", function() {
-        $("#" + this.id).append('<img src="img/circley.png" class="temp_circle" width="15" height="15" style="margin-left: auto; margin-right: auto; display: block;position: absolute;"/>');
+        $("#" + this.id).append('<img src="img/circley.png" class="temp_circle" width="20" height="20" style="margin-left: auto; margin-right: auto; display: block;position: absolute;"/>');
     });
 
     $(".cellule").on("click", function() {
@@ -16,13 +16,13 @@ $(document).ready(function() {
 
 function addPt1(x, y) {
     if ($("#cellule_" + x + "_" + y).is(":empty")) {
-        $("#cellule_" + x + "_" + y).append('<img src="img/circleb.png" width="15" height="15" style="margin-left: auto; margin-right: auto; display: block;position: absolute;"/>');
+        $("#cellule_" + x + "_" + y).append('<img src="img/circleb.png" width="20" height="20" style="margin-left: auto; margin-right: auto; display: block;position: absolute;"/>');
     }
 }
 
 function addPt2(x, y) {
     if ($("#cellule_" + x + "_" + y).is(":empty")) {
-        $("#cellule_" + x + "_" + y).append('<img src="img/circley.png" width="15" height="15" style="margin-left: auto; margin-right: auto; display: block;position: absolute;"/>');
+        $("#cellule_" + x + "_" + y).append('<img src="img/circley.png" width="20" height="20" style="margin-left: auto; margin-right: auto; display: block;position: absolute;"/>');
     }
 }
 
