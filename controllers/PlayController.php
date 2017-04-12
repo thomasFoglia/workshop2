@@ -40,7 +40,6 @@ class PlayController
       $_SESSION["j1"]["nbTenailles"] = newTenaillesCount["j1"];
       $_SESSION["j2"]["nbTenailles"] = newTenaillesCount["j2"];
       
-
       //Tour par tour (joueur x puis joueur y)
       if ($_SESSION["turn"] == 0) {
         $_SESSION["turn"] = 1;
@@ -53,9 +52,12 @@ class PlayController
     return $data;
   }
 
+  private function isLineCompleted() {
+    //voir algo line
+  }
+
   private function countTenailles($arr) {
     //voir algo tenailles
   }
 }
-
 ?>

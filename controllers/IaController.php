@@ -2,6 +2,7 @@
 class IaController
 {
     public function postAction($request) {
+		$data = "penis";
     	if( isset($_POST['currentGrid']) ){
       		$currentGrid = $_POST['currentGrid'];
   		 $data ="current grid passe bien";

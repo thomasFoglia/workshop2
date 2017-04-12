@@ -25,10 +25,10 @@ class TurnController
 
 
       $tableau = $_SESSION['tableau']; // tableau
-      $nbTenaillesJ1 = $_SESSION["j1"]["nbTenailles"];
-      $nbTenaillesJ2 = $_SESSION["j2"]["nbTenailles"];
+      $nbTenaillesJ1 = !empty($_SESSION["j1"]["nbTenailles"]) ? $_SESSION["j1"]["nbTenailles"] : 0;
+      $nbTenaillesJ2 = !empty($_SESSION["j2"]["nbTenailles"]) ? $_SESSION["j2"]["nbTenailles"] : 0;
       $dernierCoupX = !empty($_SESSION["lastX"]) ? $_SESSION["lastX"] : -1;
-      $dernierCoupX = !empty($_SESSION["lastY"]) ? $_SESSION["lastY"] : -1;
+      $dernierCoupY = !empty($_SESSION["lastY"]) ? $_SESSION["lastY"] : -1;
       $prolongation = $_SESSION["prolongation"];
       $finPartie = $_SESSION["gameEnded"];
       $detailFinPartie = "";
