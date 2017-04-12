@@ -95,6 +95,34 @@ foreach ($ptsJ1 as $pt) {
             continue;
         }
     }
+
+    if ($pt[0] != 18 && $pt[1] != 0) {
+        //Diago haut droite
+        if ($arr[$pt[1] - 1][$pt[0] + 1]) {
+            $ptsTJ1[] = [$pt[0], $pt[1]];
+        }
+    }
+
+    if ($pt[0] != 0 && $pt[1] != 0) {
+        //Diago haut gauche
+        if ($arr[$pt[1] - 1][$pt[0] - 1]) {
+            $ptsTJ1[] = [$pt[0], $pt[1]];
+        }
+    }
+
+    if ($pt[0] != 18 && $pt[1] != 18) {
+        //Diago bas droite
+        if ($arr[$pt[1] + 1][$pt[0] + 1]) {
+            $ptsTJ1[] = [$pt[0], $pt[1]];
+        }
+    }
+
+    if ($pt[0] != 0 && $pt[1] != 18) {
+        //Diago bas gauche
+        if ($arr[$pt[1] + 1][$pt[0] - 1]) {
+            $ptsTJ1[] = [$pt[0], $pt[1]];
+        }
+    }
 }
 
 //Joueur 2
@@ -129,6 +157,34 @@ foreach ($ptsJ2 as $pt) {
         if ($arr[$pt[1] - 1][$pt[0]] == 1) {
             $ptsTJ2[] = [$pt[0], $pt[1]];
             continue;
+        }
+    }
+
+    if ($pt[0] != 18 && $pt[1] != 0) {
+        //Diago haut droite
+        if ($arr[$pt[1] - 1][$pt[0] + 1]) {
+            $ptsTJ2[] = [$pt[0], $pt[1]];
+        }
+    }
+
+    if ($pt[0] != 0 && $pt[1] != 0) {
+        //Diago haut gauche
+        if ($arr[$pt[1] - 1][$pt[0] - 1]) {
+            $ptsTJ2[] = [$pt[0], $pt[1]];
+        }
+    }
+
+    if ($pt[0] != 18 && $pt[1] != 18) {
+        //Diago bas droite
+        if ($arr[$pt[1] + 1][$pt[0] + 1]) {
+            $ptsTJ2[] = [$pt[0], $pt[1]];
+        }
+    }
+
+    if ($pt[0] != 0 && $pt[1] != 18) {
+        //Diago bas gauche
+        if ($arr[$pt[1] + 1][$pt[0] - 1]) {
+            $ptsTJ2[] = [$pt[0], $pt[1]];
         }
     }
 }
