@@ -152,24 +152,7 @@ foreach ($pts as $pt) {
                 }
             }
         } 
-    } 
-
-    /*
-
-    if ($pt[0] != 18 && $pt[1] != 18) {
-        //Diago bas droite
-        if ($arr[$pt[1] + 1][$pt[0] + 1] == $numJoueur) {
-            $ptsT[] = [$pt[0], $pt[1]];
-        }
     }
-
-    if ($pt[0] != 0 && $pt[1] != 18) {
-        //Diago bas gauche
-        if ($arr[$pt[1] + 1][$pt[0] - 1] == $numJoueur) {
-            $ptsT[] = [$pt[0], $pt[1]];
-        }
-    }
-    */
 }
 
 echo $tenailles;
