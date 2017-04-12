@@ -2,7 +2,6 @@
 class IaController
 {
     public function postAction($request) {
-		$data = "penis";
     	if( isset($_POST['currentGrid']) ){
       		$currentGrid = $_POST['currentGrid'];
       		//$currentGrid = unserialize($currentGrid);
@@ -21,8 +20,9 @@ class IaController
 			}
 			$randomChoice = array_rand($tabEmpty);
 			$data = json_encode($tabEmpty[$randomChoice]);
+			
 	      	header("HTTP/1.1 200 OK");
-	      return $data;
+	      echo $data;
   		}
       	$data = [];
       	if(isset($request->url_elements[2]) && $request->url_elements[2]  != '') {
