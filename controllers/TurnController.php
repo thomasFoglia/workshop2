@@ -52,9 +52,5 @@ class TurnController
     return false;
   }
 
-  public function getTenailles($j) {
-
-  }
-
 }
 ?>
