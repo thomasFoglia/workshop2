@@ -14,10 +14,13 @@ class IaController
 					switch ($element) {
 					    case 0:
 							$tabEmpty[] = ['x' => $sskey , 'y' => $key];
+							break;
 					    case 1:
 					        $tabJoueur1[] = ['x' => $sskey , 'y' => $key];
+					        break;
 					    case 2:
 					        $tabJoueur2[] = ['x' => $sskey , 'y' => $key];
+					        break;
 					}
 				}
 			}
