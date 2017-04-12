@@ -36,7 +36,7 @@ else {
                     $("#player2cardFooter").show();
                     $("#waitingPlayer2").css("display", "flex");
 
-                    $("#player1cardFooter").show();
+                    $("#player1cardFooter").hide();
                     $("#player1turn").css("display", "flex");
                 }
                 else {
@@ -44,7 +44,7 @@ else {
                     $("#waitingPlayer2").css("display", "none");
 
                     $("#player1cardFooter").show();
-                    $("#player1turn").css("display", "none");
+                    $("#player1turn").css("display", "flex");
 
                     $.post("server.php/ia", {"currentGrid": result.tableau, "tamere": "fdp"}, function(resultIA) {
                         //L'IA ME RENVOIE UNE POSITION
