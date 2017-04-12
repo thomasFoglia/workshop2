@@ -117,7 +117,7 @@ foreach ($pts as $pt) {
             }
         }
     }
-    
+
     //Pion allié en diago haut droite du pion ennemi ?
     if ($pt[0] != 18 && $pt[1] != 0 && $arr[$pt[1] - 1][$pt[0] + 1] == $numJoueur) {
         //Pion ennemi en diago bas gauche ?
@@ -152,8 +152,8 @@ foreach ($pts as $pt) {
                 }
             }
         }
-    }
-}
+      }
+  }
 
 echo $tenailles;
 
