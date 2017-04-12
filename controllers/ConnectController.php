@@ -15,7 +15,7 @@ class ConnectController
         $numJoueur = 1;
         $nbTenailles = 0;
 
-        $_SESSION["j1"] = array("nomJoueur" => $nomJoueur, "idJoueur" => $idJoueur, "numJoueur" => $numJoueur, "nbTenailles" => 0);
+        $_SESSION["j1"] = array("nomJoueur" => $nomJoueur, "idJoueur" => $idJoueur, "numJoueur" => $numJoueur, "nbTenailles" => $nbTenailles);
         // joueur 2 se connecte
       } else if (empty($_SESSION["j2"])) {
         $idJoueur = md5(uniqid());
