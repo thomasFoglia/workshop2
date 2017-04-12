@@ -45,7 +45,7 @@ else {
 
                     $("#player1cardFooter").show();
                     $("#player1turn").css("display", "none");
-                    
+
                     $.post("server.php/ia", {"currentGrid": result.tableau, "tamere": "fdp"}, function(resultIA) {
                         //L'IA ME RENVOIE UNE POSITION
                         //Je joue en appellant /play/{x}/{y}/{nomJoueur}
@@ -130,9 +130,14 @@ else {
         for ($col = 0; $col < 19; $col++) { ?>
             <div class="ligne">
             <?php
-                for ($ligne = 0; $ligne < 19; $ligne++) { ?>
-                    <div class='cellule' id='cellule_<?php echo $col . "_" . $ligne;?>' style="background: url('img/cross.png')"></div>
-                <?php } ?>
+                for ($ligne = 0; $ligne < 19; $ligne++) {
+                  if ($ligne == 9 && $col == 9) {
+                    ?><div class='cellule' id='cellule_<?php echo $col . '_' . $ligne; ?>'></div><?php
+                  } else {
+                    ?><div class='cellule' id='cellule_<?php echo $col . '_' . $ligne; ?>' style='background: url(img/cross.png)'></div><?php
+                  }
+                }
+                ?>
             </div>
         <?php }?>
     </div>
