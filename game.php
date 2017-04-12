@@ -54,7 +54,7 @@ else {
                 //Ce n'est pas a nous de jouer
                 //if(result.status == 0) {
                 //status = [true, false][Math.round(Math.random())];
-                status = false;
+
                 var refresh_compteur = false;
                 if (old_status == null || status != old_status) {
                   refresh_compteur = true;
@@ -62,7 +62,7 @@ else {
 
                 old_status = status; // pour checker le changement de joueur
 
-                if(status == true) {
+                if(result.status == 0) {
                     $("#player2cardFooter").show();
                     $("#waitingPlayer2").css("display", "flex");
 
