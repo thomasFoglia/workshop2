@@ -5,6 +5,7 @@ class TurnController
     if (isset($request->url_elements[2]) && $request->url_elements[2] != '') {
       $nomJoueur = $request->url_elements[2];
 
+      $status = 0;
       if (!empty($_SESSION["j1"]["nomJoueur"]) && !empty($_SESSION["j2"]["nomJoueur"])) {
         if ($_SESSION["j1"]["nomJoueur"] == $nomJoueur) {
             if ($_SESSION["turn"] == "0") {
