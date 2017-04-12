@@ -146,9 +146,6 @@ else {
                 </div>
                 <progress id="player1HP" class="uk-progress" value="100" max="100"></progress>
             </div>
-            <div class="uk-card-body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-            </div>
             <div id="player1cardFooter" class="uk-card-footer" style="display: none;">
                 <div id="waitingPlayer1" style="display: none; align-items: center; justify-content: center;">
                     <div uk-spinner></div>
@@ -196,9 +193,6 @@ else {
                     </div>
                 </div>
                 <progress id="player2HP" class="uk-progress" value="100" max="100" style="background: red"></progress>
-            </div>
-            <div class="uk-card-body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
             </div>
             <div id="player2cardFooter" class="uk-card-footer" style="display: none;">
                 <div id="waitingPlayer2" style="display: none; align-items: center; justify-content: center;">
