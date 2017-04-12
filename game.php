@@ -32,20 +32,18 @@ else {
             $.get("<?=$serverUrl?>/turn/<?=$playerName?>", function(result){
                 //Ce n'est pas a nous de jouer
                 //if(result.status == 0) {
-                // a moi de jouer
-                if(true) {
+                if(false) {
+                    $("#player2cardFooter").show();
                     $("#waitingPlayer2").css("display", "flex");
-                    $("#player2turn").css("display", "none");
 
-                    $("#waitingPlayer1").css("display", "none");
-                    $("#player1turn").css("display", "flex");
+                    $("#player1cardFooter").show();
+                    $("#player1turn").show();
                 }
-                // pas a moi de jouer
                 else {
+                    $("#player2cardFooter").hide();
                     $("#waitingPlayer2").css("display", "none");
-                    $("#player2turn").css("display", "flex");
 
-                    $("#waitingPlayer1").css("display", "flex");
+                    $("#player1cardFooter").show();
                     $("#player1turn").css("display", "none");
 
                     $.post("server.php/ia", {"currentGrid": result.tableau, "tamere": "fdp"}, function(resultIA) {
@@ -112,7 +110,7 @@ else {
             <div class="uk-card-body">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
             </div>
-            <div id="player1cardFooter" class="uk-card-footer">
+            <div id="player1cardFooter" class="uk-card-footer" style="display: none;">
                 <div id="waitingPlayer1" style="display: none; align-items: center; justify-content: center;">
                     <div uk-spinner></div>
                     <div style="margin-left: 15px;">En attente du joueur</div>
@@ -162,7 +160,7 @@ else {
             <div class="uk-card-body">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
             </div>
-            <div id="player2cardFooter" class="uk-card-footer">
+            <div id="player2cardFooter" class="uk-card-footer" style="display: none;">
                 <div id="waitingPlayer2" style="display: none; align-items: center; justify-content: center;">
                     <div uk-spinner></div>
                     <div style="margin-left: 15px;">En attente du joueur</div>
@@ -170,7 +168,7 @@ else {
 
                 <div id="player2turn" style="display: none; align-items: center; justify-content: center;">
                     <span class="uk-margin-small-right" uk-icon="icon: bell;"></span>
-                    <div style="margin-left: 15px;">Au tour du joueur 2</div>
+                    <div style="margin-left: 15px;">Au jour du joueur 2</div>
                 </div>
             </div>
         </div>
