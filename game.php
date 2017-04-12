@@ -37,7 +37,7 @@ else {
                     $("#waitingPlayer2").css("display", "flex");
 
                     $("#player1cardFooter").show();
-                    $("#player1turn").show();
+                    $("#player1turn").css("display", "flex");
                 }
                 else {
                     $("#player2cardFooter").hide();
