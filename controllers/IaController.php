@@ -4,14 +4,14 @@ class IaController
     public function postAction($request) {
     	if( isset($_POST['currentGrid']) ){
       		$currentGrid = $_POST['currentGrid'];
-  		 $data ="current grid existe"	;
+  		 $data ="current grid passe bien";
   		}
   		else{
   			$data = "on recoit pas le post";
   		}
       //	$data = [];
       	if(isset($request->url_elements[2]) && $request->url_elements[2] != '') {
-	        $data = $request->url_elements[2];
+	       // $data = $request->url_elements[2];
 	        $tabEmpty = [];
 			foreach ($currentGrid as $key=>$line){
 				foreach($line as $sskey => $element){
