@@ -26,7 +26,7 @@ $currentGrid = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 , 0, 0, 0, 0, 0, 0, 0]//18
 ];
 
-$highest_all = getHighestAll($currentGrid, $numJoueur);
+$highest_all = getHighestAllLine($currentGrid, $numJoueur);
 
 var_dump($highest_all);
 
