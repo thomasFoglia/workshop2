@@ -35,7 +35,6 @@ else {
         var tenaillesPlayer2 = 0;
         var lastX = -99;
         var lastY = -99;
-        var numTour = 0;
 
         var instance_interval_decompte = null;  // interval pour le decompte de secondes
         var cpt = 10; // initialisation du compteur
@@ -77,10 +76,6 @@ else {
 
                     $("#player1cardFooter").hide();
                     $("#player1turn").css("display", "flex");
-
-                    if (refresh_compteur == true) {
-                      resetDecompte();
-                    }
                 }
                 else {
                     $("#player2cardFooter").hide();
@@ -89,9 +84,8 @@ else {
                     $("#player1cardFooter").show();
                     $("#player1turn").css("display", "flex");
 
-                    if (refresh_compteur == true) {
-                      resetDecompte();
-                    }
+                    resetDecompte();
+                
                     $("#j1_decompte").html(cpt);
 
                     $.post("server.php/ia", {"currentGrid": result.tableau, "turn": result.numTour}, function(resultIA) {
@@ -100,7 +94,6 @@ else {
                             lastX = resultIA.x;
                             lastY = resultIA.y;
                         });
-                        
                     });
                 }
 
@@ -133,9 +126,7 @@ else {
                     href.location = "end.php";
                 }
 
-                if (result.numTour != numTour) {
-                    $("#nbTour").html("Tour " + numTour);
-                }
+                $("#nbTour").html("Tour " + result.numTour);
             });
         }, 500);
     });

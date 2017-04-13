@@ -7,8 +7,8 @@ class IaController
         $turn = $_POST['turn'];
         //$currentGrid = unserialize($currentGrid);
         $tabEmpty = [];
-        if($turn ==1){
-          return ['x'=>9,'y'=>9];
+        if($turn == 0){
+          return ["x" => 9,"y" => 9];
         }
         foreach ($currentGrid as $key=>$line) {
           foreach($line as $sskey => $element) {

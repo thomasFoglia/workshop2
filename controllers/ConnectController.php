@@ -7,7 +7,7 @@ class ConnectController
     $data = [];
     if (isset($request->url_elements[2]) && $request->url_elements[2] != '') {
       $nomJoueur = $request->url_elements[2];
-
+      
       //joueur 1 se connecte
       if (empty($_SESSION["j1"])) {
         $idJoueur = md5(uniqid());
@@ -22,13 +22,14 @@ class ConnectController
         $code = 200;
         $numJoueur = 2;
         $nbTenailles = 0;
-
+        
         $_SESSION["j2"] = array("nomJoueur" => $nomJoueur, "idJoueur" => $idJoueur, "numJoueur" => $numJoueur, "nbTenailles" => $nbTenailles);
 
         //La partie commence 
         $_SESSION["turn"] = rand(0, 1);
         $_SESSION["prolongation"] = false;
         $_SESSION["gameEnded"] = false;
+        $_SESSION["detailsGameEnd"] = "hehueuheuheuheuheuheuhuheuheuheeuhueh";
         $_SESSION["numTour"] = 0;
         $_SESSION["lastPlayed"] = null;
 

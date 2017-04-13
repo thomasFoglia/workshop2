@@ -3,11 +3,11 @@ class TurnController
 {
   public function getAction($request) {
     if (isset($request->url_elements[2]) && $request->url_elements[2] != '') {
-      $nomJoueur = $request->url_elements[2];
+      $idJoueur = $request->url_elements[2];
 
       $status = 0;
       if (!empty($_SESSION["j1"]["nomJoueur"]) && !empty($_SESSION["j2"]["nomJoueur"])) {
-        if ($_SESSION["j1"]["nomJoueur"] == $nomJoueur) {
+        if ($_SESSION["j1"]["idJoueur"] == $idJoueur) {
             if ($_SESSION["turn"] == "0") {
               $status = 1;
             }
@@ -15,24 +15,27 @@ class TurnController
               $status = 0;
             }
         }
-        else if ($_SESSION["j2"]["nomJoueur"] == $nomJoueur) {
+        else if ($_SESSION["j2"]["idJoueur"] == $idJoueur) {
           if ($_SESSION["turn"] == "1") {
+            $status = 1;
+          }
+          else {
             $status = 0;
           }
+          
         }
       } else {
         $status = 0;
       }
-
 
       $tableau = $_SESSION['tableau']; // tableau
       $nbTenaillesJ1 = !empty($_SESSION["j1"]["nbTenailles"]) ? $_SESSION["j1"]["nbTenailles"] : 0;
       $nbTenaillesJ2 = !empty($_SESSION["j2"]["nbTenailles"]) ? $_SESSION["j2"]["nbTenailles"] : 0;
       $dernierCoupX = !empty($_SESSION["lastX"]) ? $_SESSION["lastX"] : -1;
       $dernierCoupY = !empty($_SESSION["lastY"]) ? $_SESSION["lastY"] : -1;
-      $prolongation = $_SESSION["prolongation"];
-      $finPartie = $_SESSION["gameEnded"];
-      $detailFinPartie = "";
+      $prolongation =  !empty($_SESSION["prolongation"]) ? $_SESSION["prolongation"] : false;
+      $finPartie = !empty($_SESSION["gameEnded"]) ? $_SESSION["gameEnded"] : false;
+      $detailFinPartie = !empty($_SESSION["detailsGameEnd"]) ? $_SESSION["detailsGameEnd"] : "";
       $numTour = $_SESSION["numTour"];
       $code = 200;
 
