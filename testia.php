@@ -36,7 +36,7 @@ var_dump($highest_all);
 
 /* FONCTIONS */
 
-function getHighestAll($currentGrid, $numJoueur) {
+function getHighestAllLine($currentGrid, $numJoueur) {
   // parcourt la grid
   foreach($currentGrid as $ligne) {
     $width = 0;
