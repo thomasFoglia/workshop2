@@ -16,7 +16,7 @@ $(document).ready(function() {
         e.preventDefault();
         pseudo = $("input[name='playerName']").val();
         $.ajax({
-            url: "server.php/connect/" + pseudo,
+            url: $("input[name='serverUrl']").val() + "/connect/" + pseudo,
             type: "GET",
             data: [],
             dataType: 'json',

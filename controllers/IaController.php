@@ -10,7 +10,7 @@ class IaController
           foreach($line as $sskey => $element) {
             switch ($element) {
               case 0:
-          		$tabEmpty[] = ['x' => $sskey , 'y' => $key];
+          		    $tabEmpty[] = ['x' => $sskey , 'y' => $key];
               case 1:
                   $tabJoueur1[] = ['x' => $sskey , 'y' => $key];
               case 2:
@@ -19,15 +19,11 @@ class IaController
           }
         }
         $randomChoice = array_rand($tabEmpty);
-        $data = json_encode($tabEmpty[$randomChoice]);
-
-        header("HTTP/1.1 200 OK");
-        echo $data;
+        //$data = json_encode($tabEmpty[$randomChoice]);
+        $data = $tabEmpty[$randomChoice];
+        return $data;
+        //echo $data;
       }
-      	$data = [];
-      	if(isset($request->url_elements[2]) && $request->url_elements[2]  != '') {
-	        $data = $request->url_elements[2];
-    	}
 	}
 }
 

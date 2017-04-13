@@ -17,6 +17,15 @@ else {
     //POUR LE DEV ENLEVER APRES
     $playerName = "Je suis le joueur";
 }
+
+if(!empty($_GET["idJoueur"]))
+{
+    $idJoueur = $_GET["idJoueur"];
+}
+else {
+    //POUR LE DEV ENLEVER APRES
+    $idJoueur = "HUEHUEUHEUHUHUEHUEHUHUEHUEHUEHUE";
+}
 ?>
     <link href="css/game.css" rel="stylesheet">
     <script src="js/game.js?v=<?=time();?>"></script>
@@ -37,7 +46,7 @@ else {
               cpt -= 1;
           }
           if (cpt == 0) {  // == 0
-              console.log("PERDU !!! car > 10 secondes "); //TODO UIKIT
+            //TODO UIKIT
               clearInterval(instance_interval_decompte); // stop decompte
           }
           return cpt;
@@ -50,7 +59,7 @@ else {
         instance_interval_decompte = setInterval(decompte, 1000);
 
         setInterval(function() {
-            $.get("<?=$serverUrl?>/turn/<?=$playerName?>", function(result) {
+            $.get("<?=$serverUrl?>/turn/<?=$idJoueur?>", function(result) {
                 //Ce n'est pas a nous de jouer
                 //if(result.status == 0) {
                 //status = [true, false][Math.round(Math.random())];
@@ -85,10 +94,13 @@ else {
                     }
                     $("#j1_decompte").html(cpt);
 
-                    $.post("server.php/ia", {"currentGrid": result.tableau, "tamere": "fdp"}, function(resultIA) {
-                        //L'IA ME RENVOIE UNE POSITION
-                        //Je joue en appellant /play/{x}/{y}/{nomJoueur}
-
+                    $.post("server.php/ia", {"currentGrid": result.tableau}, function(resultIA) {
+                        $.get("<?=$serverUrl?>/play/" + resultIA.x + "/" + resultIA.y + "/<?=$idJoueur?>", function() {
+                            addPt1(resultIA.x, resultIA.y);
+                            lastX = resultIA.x;
+                            lastY = resultIA.y;
+                        });
+                        
                     });
                 }
 
@@ -103,7 +115,7 @@ else {
                     $("#player2HP").val(100 - (tenaillesPlayer2 * 20));
                 }
 
-                //Un joueur a posé un pion
+                //L'ennemi a posé un pion
                 if (result.dernierCoupX != lastX || result.dernierCoupY != lastY){
                     lastX = result.dernierCoupX;
                     lastY = result.dernierCoupY;
