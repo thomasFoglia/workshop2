@@ -4,6 +4,7 @@ class IaController
     public function postAction($request) {
     	if( isset($_POST['currentGrid']) ) {
         $currentGrid = $_POST['currentGrid'];
+        $turn = $_POST['turn'];
         //$currentGrid = unserialize($currentGrid);
         $tabEmpty = [];
         foreach ($currentGrid as $key=>$line) {
