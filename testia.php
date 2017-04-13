@@ -5,7 +5,7 @@ $numJoueur = 1;
 
 $currentGrid = [
 //  0   1  2  3  4  5  6  7  8  9 10 11  12 13 14 15 16 17 18
-    [0, 0, 1, 0, 0, 2, 2, 1, 0, 1 ,0 ,1 , 1, 1, 1, 0, 0, 0, 0],//0
+    [0, 0, 1, 1, 0, 2, 2, 1, 0, 1 ,0 ,1 , 0, 1, 1, 0, 0, 0, 0],//0
     [0, 0, 0, 0, 2, 0, 0, 0, 0, 0 ,0 ,0 , 0, 0, 0, 0, 0, 0, 0],//1
     [0, 0, 0, 0, 2, 0, 0, 0, 0, 0 ,0 ,0 , 0, 0, 0, 0, 0, 0, 0],//2
     [0, 0, 0, 0, 1, 0, 0, 0, 0, 0 ,0 ,0 , 0, 0, 0, 0, 0, 0, 0],//3
@@ -22,21 +22,97 @@ $currentGrid = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 , 0, 0, 0, 0, 0, 0, 0],//14
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 , 0, 0, 0, 0, 0, 0, 0],//15
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 , 0, 0, 0, 0, 0, 0, 0],//16
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 , 0, 0, 0, 0, 0, 0, 0],//17
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 , 0, 0, 1, 0, 0, 0, 0],//17
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 , 0, 0, 0, 0, 0, 0, 0]//18
 ];
 
-$highest_all = getHighestAllLine($currentGrid, $numJoueur);
-
-var_dump($highest_all);
-
+$to_play_line = getToPlayLine($currentGrid, $numJoueur);
+var_dump($to_play_line);
 
 
 
+/************************************************ FONCTIONS ************************************************************/
 
-/* FONCTIONS */
+// retourne le coup à jouer
+function getToPlayLine($currentGrid, $numJoueur) {
+  // les series les plus hautes de chaque ligne
+  $highests_series_lines = getHighestsAllLine($currentGrid, $numJoueur);
 
-function getHighestAllLine($currentGrid, $numJoueur) {
+  //var_dump($highests_series_lines);die();
+  // tri de ce tableau dans l'ordre décroissant des longeurs de séries
+  $sorted = sortArrayWidthDesc($highests_series_lines);
+  // retourne le coup à jouer
+  $to_play_line = to_play_line($currentGrid, $sorted);
+
+  return $to_play_line;
+}
+
+// retourne le coup à jouer
+function to_play_line($currentGrid, $sorted) {
+  //var_dump($sorted);
+  //var_dump($currentGrid);
+
+  foreach ($sorted as $key => $value) { // nos valeurs
+    $x = $value["x"];
+    $y_init = $value["init_y"];
+    $y_end = $value["end_y"];
+    $impossible = false;
+    if (isset($currentGrid[$x][$y_init - 1])) {   // on peut le placer a gauche
+
+      if ($currentGrid[$x][$y_init - 1] == 0) { // si a gauche est libre
+        // var_dump($currentGrid[$x][$y_init -1]);
+        return array($x, $y_init - 1);
+      } else {
+        return coupRandom($currentGrid);
+      }
+    } else if (isset($currentGrid[$x][$y_init + 1])) { // on peut le placer a droite
+      if ($currentGrid[$x][$y_init + 1] == 0) { // si a droite est libre
+        return array($x, $y_init + 1);
+      } else {
+          return coupRandom($currentGrid);
+      }
+    } else {
+      return coupRandom($currentGrid);
+    }
+  }
+
+  return true;
+}
+
+// retourne au hasard une case qui a une valeur 0
+function coupRandom($currentGrid) {
+  //var_dump($currentGrid);
+  $array_empty = array();
+  foreach ($currentGrid as $key_x => $all_x) {
+    foreach ($all_x as $key_y => $y) {
+      if ($currentGrid[$key_x][$key_y] == 0) {
+        $array_empty[] = array($key_x, $key_y);
+      }
+    }
+  }
+  return $array_empty[array_rand($array_empty)];
+}
+
+
+// retourne le tableau avec les width dans l'ordre décroissant
+// = les series de plus interessantes à jouer vers les moins interessantes
+function sortArrayWidthDesc($highests_series_lines) {
+  $final = [];
+  for ($i=19 ; $i > 0 ; $i--) {
+    foreach ($highests_series_lines as $key => $value) {
+      if ($value["width"] == $i) {
+        $value = array('x' => $key) + $value; // add du X
+        $final[] = $value;
+      }
+    }
+  }
+
+  return $final;
+}
+
+
+
+function getHighestsAllLine($currentGrid, $numJoueur) {
   // parcourt la grid
   foreach($currentGrid as $ligne) {
     $width = 0;
@@ -62,13 +138,14 @@ function getHighestAllLine($currentGrid, $numJoueur) {
           $width--;
         }
       }
+      $l_inc++;
     }
 
     $highest = getHighestSerie($highest);
     $highest_all[] = $highest; // va contenir toutes les series max de chaque ligne
-    $l_inc++;
+
   }
-  return $highest_all;
+  return array_filter($highest_all); // supprime les array vides
 }
 
 // retourne la plus grande série de la ligne
