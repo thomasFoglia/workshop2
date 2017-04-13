@@ -50,13 +50,23 @@ function checkLine($pts_user) {
     } else {
       $datas_grouped[$p[0]][] = $p[1];
     }
-    sort($datas_grouped[$p[0]]);  // tri ordonnées
+    rsort($datas_grouped[$p[0]]);  // tri ordonnées
   }
   //var_dump($datas_grouped);
 
-  foreach ($datas_grouped as $abs => $ord) {
+  foreach ($datas_grouped as $abs => $ordonnees) {
     var_dump($abs);
-    var_dump($ord);
+    var_dump($ordonnees);
+    $size_ords = count($ordonnees);
+    var_dump($size_ords . " éléments");
+    if ($size_ords > 1) {
+      foreach ($ordonnees as $ord) {
+        var_dump($ord);
+      }
+    } else {
+      // peut pas être exploité car 1 seul élément
+    }
+  echo('<br>_________________________________<br>');
   }
 
 }

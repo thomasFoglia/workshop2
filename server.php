@@ -1,24 +1,17 @@
 <?php
 session_start();
-spl_autoload_register('apiAutoload');
-function apiAutoload($classname)
-{
-    // si on a une entite en parametre
-    if ($classname != 'Controller') {
-        if (preg_match('/[a-zA-Z]+Controller$/', $classname)) {
-            include __DIR__ . '/controllers/' . $classname . '.php';
-            return true;
-        } elseif (preg_match('/[a-zA-Z]+View$/', $classname)) {
-            include __DIR__ . '/views/' . $classname . '.php';
-            return true;
-        } else {
-            include __DIR__ . '/library/' . str_replace('_', DIRECTORY_SEPARATOR, $classname) . '.php';
-            return true;
-        }
-        return false;
-    }
-    return true;
+
+$classes = array("Request", "ConnectController", "IaController", "PlayController", "TurnController", "JsonView");
+foreach ($classes as $classname) {
+  if (preg_match('/[a-zA-Z]+Controller$/', $classname)) {
+      include __DIR__ . '/controllers/' . $classname . '.php';
+  } elseif (preg_match('/[a-zA-Z]+View$/', $classname)) {
+      include __DIR__ . '/views/' . $classname . '.php';
+  } else {
+      include __DIR__ . '/library/' . str_replace('_', DIRECTORY_SEPARATOR, $classname) . '.php';
+  }
 }
+
 
 $request = new Request();
 
