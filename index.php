@@ -32,7 +32,7 @@ include "header.php";
             <div class="uk-margin uk-text-center">
                 <div class="uk-inline uk-align-center">
                     <span class="uk-form-icon" uk-icon="icon: link"></span>
-                    <input name="serverUrl" class="uk-input uk-form-width-large" type="text" placeholder="URL du serveur" value="http://loicmazallon.com/server.php">
+                    <input name="serverUrl" class="uk-input uk-form-width-large" type="text" placeholder="URL du serveur" value="http://pentes.arrobe.fr/server.php">
                 </div>
             </div>
 
