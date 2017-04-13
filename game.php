@@ -94,7 +94,7 @@ else {
                     }
                     $("#j1_decompte").html(cpt);
 
-                    $.post("server.php/ia", {"currentGrid": result.tableau}, function(resultIA) {
+                    $.post("server.php/ia", {"currentGrid": result.tableau, "turn": result.numTour}, function(resultIA) {
                         $.get("<?=$serverUrl?>/play/" + resultIA.x + "/" + resultIA.y + "/<?=$idJoueur?>", function() {
                             addPt1(resultIA.x, resultIA.y);
                             lastX = resultIA.x;
