@@ -26,39 +26,50 @@ $currentGrid = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 , 0, 0, 0, 0, 0, 0, 0]//18
 ];
 
-// parcourt la grid
-foreach($currentGrid as $ligne) {
-  $width = 0;
-  $highest = [];
-  $init_y = -1;
-  $l_inc = 0;
-  // parcourt la ligne
-  foreach ($ligne as $key => $value) {
-    // c'est la bonne valeur
-    if ($value == $numJoueur) {
-      if ($init_y == -1 || $wrong == 1) {
-        $init_y = $key;
-      }
-      $end_y = $key;
-      $width ++;
-      $highest[] = array("init_y" => $init_y, "end_y" => $end_y, "width" => $width);
-      $wrong = 0;
-    } else {
-      // pas la bonne valeur
-      // on retinitialise le comptage
-      if ($width != 0) {
-        $wrong = 1;
-        $width--;
-      }
-    }
-  }
-
-  $highest = getHighestSerie($highest);
-  $highest_all[] = $highest; // va contenir toutes les series max de chaque ligne
-  $l_inc++;
-}
+$highest_all = getHighestAll($currentGrid, $numJoueur);
 
 var_dump($highest_all);
+
+
+
+
+
+/* FONCTIONS */
+
+function getHighestAll($currentGrid, $numJoueur) {
+  // parcourt la grid
+  foreach($currentGrid as $ligne) {
+    $width = 0;
+    $highest = [];
+    $init_y = -1;
+    $l_inc = 0;
+    // parcourt la ligne
+    foreach ($ligne as $key => $value) {
+      // c'est la bonne valeur
+      if ($value == $numJoueur) {
+        if ($init_y == -1 || $wrong == 1) {
+          $init_y = $key;
+        }
+        $end_y = $key;
+        $width ++;
+        $highest[] = array("init_y" => $init_y, "end_y" => $end_y, "width" => $width);
+        $wrong = 0;
+      } else {
+        // pas la bonne valeur
+        // on retinitialise le comptage
+        if ($width != 0) {
+          $wrong = 1;
+          $width--;
+        }
+      }
+    }
+
+    $highest = getHighestSerie($highest);
+    $highest_all[] = $highest; // va contenir toutes les series max de chaque ligne
+    $l_inc++;
+  }
+  return $highest_all;
+}
 
 // retourne la plus grande série de la ligne
 function getHighestSerie($array) {
